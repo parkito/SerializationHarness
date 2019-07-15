@@ -1,12 +1,17 @@
 package ru.siksmfp.serialization.harness;
 
 import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Mode;
 
 public class MainTest {
 
     @Benchmark
+    @BenchmarkMode(Mode.All)
     public void test() {
-        System.out.println(Math.sqrt(10023.1));
+        for (long i = 0; i < 100; i++) {
+            System.out.println(Math.sqrt(i));
+        }
     }
 
     public static void main(String[] args) throws Exception {
