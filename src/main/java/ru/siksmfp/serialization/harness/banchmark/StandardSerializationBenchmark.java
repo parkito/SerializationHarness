@@ -1,6 +1,5 @@
 package ru.siksmfp.serialization.harness.banchmark;
 
-import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
@@ -34,7 +33,7 @@ public class StandardSerializationBenchmark extends ParentBenchmark {
         }
     }
 
-//    @Benchmark
+    //    @Benchmark
     public byte[] serializationBenchmark(UserState state) {
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
              ObjectOutputStream out = new ObjectOutputStream(bos)) {
@@ -47,7 +46,7 @@ public class StandardSerializationBenchmark extends ParentBenchmark {
         }
     }
 
-//    @Benchmark
+    //    @Benchmark
     public User deSerializationBenchmark(StandardUserState state) {
         try (ByteArrayInputStream bis = new ByteArrayInputStream(state.serializedUser);
              ObjectInput in = new ObjectInputStream(bis)) {

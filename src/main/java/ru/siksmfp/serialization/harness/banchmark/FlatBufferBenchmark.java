@@ -27,25 +27,25 @@ public class FlatBufferBenchmark extends ParentBenchmark {
             UserProto.Address address2 = UserProto.Address.newBuilder()
                     .setId(2)
                     .setCity("SPB")
-                    .setPopulation(15_000_000)
+                    .setPopulation(5_000_000)
                     .build();
 
             UserProto.Address address3 = UserProto.Address.newBuilder()
                     .setId(3)
                     .setCity("Dzerzhinsk")
-                    .setPopulation(15_000_000)
+                    .setPopulation(250_000)
                     .build();
 
             UserProto.Address address4 = UserProto.Address.newBuilder()
                     .setId(4)
                     .setCity("Vladivastok")
-                    .setPopulation(15_000_000)
+                    .setPopulation(1_000_000)
                     .build();
 
             UserProto.Address address5 = UserProto.Address.newBuilder()
                     .setId(5)
                     .setCity("Tokio")
-                    .setPopulation(15_000_000)
+                    .setPopulation(30_000_000)
                     .build();
 
             userProto = UserProto.User
@@ -59,6 +59,7 @@ public class FlatBufferBenchmark extends ParentBenchmark {
                     .addAddresses(address5)
                     .setSignature(ByteString.copyFrom("longUniqGoodUserSignatureForSecurity".getBytes()))
                     .build();
+
             serializedUser = userProto.toByteArray();
         }
     }
@@ -77,4 +78,9 @@ public class FlatBufferBenchmark extends ParentBenchmark {
             return null;
         }
     }
+
+    // java 8
+//    Benchmark                                     Mode  Cnt    Score    Error  Units
+//    FlatBufferBenchmark.deSerializationBenchmark  avgt   10  442.000 ± 33.434  ns/op
+//    FlatBufferBenchmark.serializationBenchmark    avgt   10  199.794 ± 10.473  ns/op
 }
