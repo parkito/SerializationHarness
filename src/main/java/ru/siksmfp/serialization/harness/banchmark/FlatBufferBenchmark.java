@@ -64,12 +64,12 @@ public class FlatBufferBenchmark extends ParentBenchmark {
         }
     }
 
-    @Benchmark
+//    @Benchmark
     public byte[] serializationBenchmark(FlatBufferUserState state) {
         return state.userProto.toByteArray();
     }
 
-    @Benchmark
+//    @Benchmark
     public UserProto.User deSerializationBenchmark(FlatBufferUserState state) {
         try {
             return UserProto.User.parseFrom(state.serializedUser);
