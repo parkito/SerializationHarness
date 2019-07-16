@@ -1,8 +1,11 @@
 package ru.siksmfp.serialization.harness.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 7093573191624563747L;
 
     private Long id;
     private String name;

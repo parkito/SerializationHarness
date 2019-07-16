@@ -1,6 +1,10 @@
 package ru.siksmfp.serialization.harness.model;
 
-public class Address {
+import java.io.Serializable;
+
+public class Address implements Serializable {
+
+    private static final long serialVersionUID = 4418526387644582046L;
 
     private Long id;
     private String city;
