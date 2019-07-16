@@ -1,4 +1,4 @@
-package ru.siksmfp.serialization.harness.model;
+package ru.siksmfp.serialization.harness.model.standart;
 
 import java.io.Serializable;
 import java.util.List;
