@@ -32,6 +32,17 @@
             <artifactId>jmh-generator-annprocess</artifactId>
             <version>1.21</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.flatbuffers</groupId>
+            <artifactId>flatbuffers-java</artifactId>
+            <version>1.11.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.9.0</version>
+        </dependency>
     </dependencies>
 
     <build>

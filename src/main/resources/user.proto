@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_outer_classname = "UserProto";
+
+option java_package = "ru.siksmfp.serialization.harness.model.proto";
+
+message User {
+
+    int64 id = 1;
+
+    string name = 2;
+
+    bytes signature = 3;
+
+    repeated Address addresses = 4;
+
+}
+
+message Address {
+
+    int64 id = 1;
+
+    string city = 2;
+
+    int32 population = 3;
+
+}
