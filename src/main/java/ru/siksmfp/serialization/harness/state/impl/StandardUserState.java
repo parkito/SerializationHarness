@@ -13,11 +13,23 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.Arrays;
 
+import static ru.siksmfp.serialization.harness.state.StateConstant.DZRERZHINSK_CITY;
+import static ru.siksmfp.serialization.harness.state.StateConstant.DZRERZHINSK_POPULATION;
 import static ru.siksmfp.serialization.harness.state.StateConstant.ID_1;
 import static ru.siksmfp.serialization.harness.state.StateConstant.ID_2;
 import static ru.siksmfp.serialization.harness.state.StateConstant.ID_3;
 import static ru.siksmfp.serialization.harness.state.StateConstant.ID_4;
 import static ru.siksmfp.serialization.harness.state.StateConstant.ID_5;
+import static ru.siksmfp.serialization.harness.state.StateConstant.MOSCOW_CITY;
+import static ru.siksmfp.serialization.harness.state.StateConstant.MOSCOW_POPULATION;
+import static ru.siksmfp.serialization.harness.state.StateConstant.NAME;
+import static ru.siksmfp.serialization.harness.state.StateConstant.SIGNATURE;
+import static ru.siksmfp.serialization.harness.state.StateConstant.SPB_CITY;
+import static ru.siksmfp.serialization.harness.state.StateConstant.SPB_POPULATION;
+import static ru.siksmfp.serialization.harness.state.StateConstant.TOKIO_CITY;
+import static ru.siksmfp.serialization.harness.state.StateConstant.TOKIO_POPULATION;
+import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_CITY;
+import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_POPULATION;
 
 @State(Scope.Benchmark)
 public class StandardUserState implements BenchmarkState {
@@ -28,17 +40,17 @@ public class StandardUserState implements BenchmarkState {
     @Setup(Level.Trial)
     @Override
     public void setUp() {
-        Address address1 = new Address(ID_1, "Moscow", 15_000_000);
-        Address address2 = new Address(ID_2, "SPB", 5_000_000);
-        Address address3 = new Address(ID_3, "Dzerzhinsk", 250_000);
-        Address address4 = new Address(ID_4, "Vladivastok", 1_000_000);
-        Address address5 = new Address(ID_5, "Tokio", 30_000_000);
+        Address address1 = new Address(ID_1, MOSCOW_CITY, MOSCOW_POPULATION);
+        Address address2 = new Address(ID_2, SPB_CITY, SPB_POPULATION);
+        Address address3 = new Address(ID_3, DZRERZHINSK_CITY, DZRERZHINSK_POPULATION);
+        Address address4 = new Address(ID_4, VLADIVASTOK_CITY, VLADIVASTOK_POPULATION);
+        Address address5 = new Address(ID_5, TOKIO_CITY, TOKIO_POPULATION);
 
         User user = new User();
         user.setId(ID_1);
-        user.setName("name");
+        user.setName(NAME);
         user.setAddresses(Arrays.asList(address1, address2, address3, address4, address4, address5));
-        user.setSignature("longUniqGoodUserSignatureForSecurity".getBytes());
+        user.setSignature(SIGNATURE);
 
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
              ObjectOutputStream out = new ObjectOutputStream(bos)) {
