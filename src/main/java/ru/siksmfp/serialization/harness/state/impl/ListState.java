@@ -17,6 +17,7 @@ public class ListState implements BenchmarkState {
     public List<String> linkedList;
 
     @Setup(Level.Trial)
+    @Override
     public void setUp() {
         arrayList = new ArrayList<>();
         linkedList = new LinkedList<>();

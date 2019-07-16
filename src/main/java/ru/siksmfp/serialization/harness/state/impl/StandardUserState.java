@@ -13,6 +13,12 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.Arrays;
 
+import static ru.siksmfp.serialization.harness.state.StateConstant.ID_1;
+import static ru.siksmfp.serialization.harness.state.StateConstant.ID_2;
+import static ru.siksmfp.serialization.harness.state.StateConstant.ID_3;
+import static ru.siksmfp.serialization.harness.state.StateConstant.ID_4;
+import static ru.siksmfp.serialization.harness.state.StateConstant.ID_5;
+
 @State(Scope.Benchmark)
 public class StandardUserState implements BenchmarkState {
 
@@ -20,15 +26,16 @@ public class StandardUserState implements BenchmarkState {
     public byte[] serializedUser;
 
     @Setup(Level.Trial)
+    @Override
     public void setUp() {
-        Address address1 = new Address(1L, "Moscow", 15_000_000);
-        Address address2 = new Address(3L, "SPB", 5_000_000);
-        Address address3 = new Address(4L, "Dzerzhinsk", 250_000);
-        Address address4 = new Address(5L, "Vladivastok", 1_000_000);
-        Address address5 = new Address(6L, "Tokio", 30_000_000);
+        Address address1 = new Address(ID_1, "Moscow", 15_000_000);
+        Address address2 = new Address(ID_2, "SPB", 5_000_000);
+        Address address3 = new Address(ID_3, "Dzerzhinsk", 250_000);
+        Address address4 = new Address(ID_4, "Vladivastok", 1_000_000);
+        Address address5 = new Address(ID_5, "Tokio", 30_000_000);
 
         User user = new User();
-        user.setId(100L);
+        user.setId(ID_1);
         user.setName("name");
         user.setAddresses(Arrays.asList(address1, address2, address3, address4, address4, address5));
         user.setSignature("longUniqGoodUserSignatureForSecurity".getBytes());
