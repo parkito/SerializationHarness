@@ -17,7 +17,7 @@ import java.io.ObjectOutputStream;
 public class StandardSerializationBenchmark extends ParentBenchmark {
 
     @State(Scope.Benchmark)
-    private static class StandardUserState {
+    public static class StandardUserState {
         public byte[] serializedUser;
 
         @Setup(Level.Trial)
@@ -34,7 +34,7 @@ public class StandardSerializationBenchmark extends ParentBenchmark {
         }
     }
 
-    @Benchmark
+//    @Benchmark
     public byte[] serializationBenchmark(UserState state) {
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
              ObjectOutputStream out = new ObjectOutputStream(bos)) {
@@ -47,7 +47,7 @@ public class StandardSerializationBenchmark extends ParentBenchmark {
         }
     }
 
-    @Benchmark
+//    @Benchmark
     public User deSerializationBenchmark(StandardUserState state) {
         try (ByteArrayInputStream bis = new ByteArrayInputStream(state.serializedUser);
              ObjectInput in = new ObjectInputStream(bis)) {
