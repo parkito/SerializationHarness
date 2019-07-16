@@ -1,4 +1,4 @@
-package ru.siksmfp.serialization.harness.banchmark;
+package ru.siksmfp.serialization.harness.banchmark.impl;
 
 import org.capnproto.ArrayInputStream;
 import org.capnproto.ArrayOutputStream;
@@ -11,6 +11,7 @@ import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
+import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
 import ru.siksmfp.serialization.harness.model.capnp.UserModel;
 
 import java.io.IOException;

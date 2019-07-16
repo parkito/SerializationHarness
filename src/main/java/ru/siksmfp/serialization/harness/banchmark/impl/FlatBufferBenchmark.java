@@ -1,12 +1,12 @@
-package ru.siksmfp.serialization.harness.banchmark;
+package ru.siksmfp.serialization.harness.banchmark.impl;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
-import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
+import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
 import ru.siksmfp.serialization.harness.model.proto.UserProto;
 
 public class FlatBufferBenchmark extends ParentBenchmark {
@@ -64,12 +64,12 @@ public class FlatBufferBenchmark extends ParentBenchmark {
         }
     }
 
-//    @Benchmark
+    //    @Benchmark
     public byte[] serializationBenchmark(FlatBufferUserState state) {
         return state.userProto.toByteArray();
     }
 
-//    @Benchmark
+    //    @Benchmark
     public UserProto.User deSerializationBenchmark(FlatBufferUserState state) {
         try {
             return UserProto.User.parseFrom(state.serializedUser);
