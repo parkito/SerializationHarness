@@ -1,0 +1,15 @@
+package media
+
+type Address struct {
+    id          int64
+    city        text
+    population  int32
+}
+
+type User struct {
+    id   int64
+    name text
+    signature binary
+    addresses []Address
+}
+

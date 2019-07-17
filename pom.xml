@@ -59,6 +59,14 @@
             <artifactId>runtime</artifactId>
             <version>0.1.4</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -102,6 +110,14 @@
 <!--                    </execution>-->
 <!--                </executions>-->
 <!--            </plugin>-->
+            <plugin>
+                <groupId>net.quies.colfer</groupId>
+                <artifactId>colfer-maven-plugin</artifactId>
+                <version>1.11.2</version>
+                <configuration>
+                    <packagePrefix>com/example</packagePrefix>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
