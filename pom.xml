@@ -110,14 +110,14 @@
 <!--                    </execution>-->
 <!--                </executions>-->
 <!--            </plugin>-->
-            <plugin>
-                <groupId>net.quies.colfer</groupId>
-                <artifactId>colfer-maven-plugin</artifactId>
-                <version>1.11.2</version>
-                <configuration>
-                    <packagePrefix>com/example</packagePrefix>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>net.quies.colfer</groupId>-->
+<!--                <artifactId>colfer-maven-plugin</artifactId>-->
+<!--                <version>1.11.2</version>-->
+<!--                <configuration>-->
+<!--                    <packagePrefix>com/example</packagePrefix>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

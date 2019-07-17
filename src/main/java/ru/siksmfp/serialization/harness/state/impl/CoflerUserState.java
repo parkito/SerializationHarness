@@ -1,5 +1,9 @@
 package ru.siksmfp.serialization.harness.state.impl;
 
+import org.openjdk.jmh.annotations.Level;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
 import ru.siksmfp.serialization.harness.model.cofler.Address;
 import ru.siksmfp.serialization.harness.model.cofler.User;
 import ru.siksmfp.serialization.harness.state.StateConstant;
@@ -22,11 +26,13 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.TOKIO_POPULAT
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_CITY;
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_POPULATION;
 
+@State(Scope.Benchmark)
 public class CoflerUserState implements BenchmarkState {
 
     public User user;
     public byte[] serializedUser;
 
+    @Setup(Level.Trial)
     @Override
     public void setUp() {
         user = new User();

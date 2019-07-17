@@ -1,15 +1,16 @@
 package ru.siksmfp.serialization.harness.banchmark.impl;
 
+import org.openjdk.jmh.annotations.Benchmark;
 import ru.siksmfp.serialization.harness.state.impl.ListState;
 
 public class SimpleBenchmark {
 
-    //    @Benchmark
+    @Benchmark
     public String findArrayListBenchmark(ListState listState) {
         return listState.arrayList.get(900);
     }
 
-    //    @Benchmark
+    @Benchmark
     public String findLinkedListBenchmark(ListState listState) {
         return listState.linkedList.get(900);
     }
