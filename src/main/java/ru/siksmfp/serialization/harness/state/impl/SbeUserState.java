@@ -1,12 +1,14 @@
-package ru.siksmfp.serialization.harness.banchmark.impl;
+package ru.siksmfp.serialization.harness.state.impl;
 
 import org.agrona.concurrent.UnsafeBuffer;
-import org.openjdk.jmh.annotations.Benchmark;
-import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
+import org.openjdk.jmh.annotations.Level;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
+import ru.siksmfp.serialization.harness.model.proto.UserProto;
 import ru.siksmfp.serialization.harness.model.sbe.MessageHeaderEncoder;
-import ru.siksmfp.serialization.harness.model.sbe.UserDecoder;
 import ru.siksmfp.serialization.harness.model.sbe.UserEncoder;
-import ru.siksmfp.serialization.harness.state.impl.SbeUserState;
+import ru.siksmfp.serialization.harness.state.api.BenchmarkState;
 
 import java.nio.ByteBuffer;
 
@@ -28,19 +30,24 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.TOKIO_POPULAT
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_CITY;
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_POPULATION;
 
-public class SbeBenchmark extends ParentBenchmark<SbeUserState, String> {
+@State(Scope.Benchmark)
+public class SbeUserState implements BenchmarkState {
 
-    @Benchmark
+    public UserProto.User userProto;
+    public UnsafeBuffer unsafeBuffer;
+
+    @Setup(Level.Trial)
     @Override
-    public byte[] serializationBenchmark(SbeUserState state) {
-        UnsafeBuffer unsafeBuffer = new UnsafeBuffer();
+    public void setUp() {
+
+        unsafeBuffer = new UnsafeBuffer();
         unsafeBuffer.wrap(ByteBuffer.allocateDirect(1024));
 
         UserEncoder userEncoder = new UserEncoder();
         userEncoder.wrapAndApplyHeader(unsafeBuffer, 0, new MessageHeaderEncoder());
 
-        userEncoder.signature(new String(SIGNATURE));
         userEncoder.name(NAME);
+        userEncoder.signature(new String(SIGNATURE));
 
         UserEncoder.AddressesEncoder addresses = userEncoder.addressesCount(5);
 
@@ -50,40 +57,24 @@ public class SbeBenchmark extends ParentBenchmark<SbeUserState, String> {
         addresses.next();
 
         addresses.id(ID_2);
-        addresses.city(SPB_CITY);
         addresses.population(SPB_POPULATION);
+        addresses.city(SPB_CITY);
         addresses.next();
 
         addresses.id(ID_3);
-        addresses.population(DZRERZHINSK_POPULATION);
         addresses.city(DZRERZHINSK_CITY);
+        addresses.population(DZRERZHINSK_POPULATION);
         addresses.next();
 
-        addresses.city(VLADIVASTOK_CITY);
         addresses.id(ID_4);
+        addresses.city(VLADIVASTOK_CITY);
         addresses.population(VLADIVASTOK_POPULATION);
         addresses.next();
 
         addresses.id(ID_5);
-        addresses.population(TOKIO_POPULATION);
         addresses.city(TOKIO_CITY);
+        addresses.population(TOKIO_POPULATION);
         addresses.next();
 
-        return userEncoder.buffer().byteArray();
-    }
-
-    @Benchmark
-    @Override
-    public String deSerializationBenchmark(SbeUserState state) {
-        UserDecoder userDecoder = new UserDecoder();
-        userDecoder.wrap(state.unsafeBuffer, 8, 208, 1);
-        return userDecoder.toString();
     }
 }
-
-//java 8
-
-//    Benchmark                              Mode  Cnt     Score     Error  Units
-//    SbeBenchmark.deSerializationBenchmark  avgt   10   796.330 ±  68.448  ns/op
-//    SbeBenchmark.serializationBenchmark    avgt   10  1221.958 ± 115.757  ns/op
-
