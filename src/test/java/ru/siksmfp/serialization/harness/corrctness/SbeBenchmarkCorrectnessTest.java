@@ -3,10 +3,7 @@ package ru.siksmfp.serialization.harness.corrctness;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.siksmfp.serialization.harness.banchmark.impl.SbeBenchmark;
-import ru.siksmfp.serialization.harness.banchmark.impl.StandardSerializationBenchmark;
-import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.state.impl.SbeUserState;
-import ru.siksmfp.serialization.harness.state.impl.StandardUserState;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
