@@ -29,7 +29,7 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_P
 @State(Scope.Benchmark)
 public class FlatBufferUserState implements BenchmarkState {
 
-    public UserProto.User userProto;
+    public UserProto.User user;
     public byte[] serializedUser;
 
     @Setup(Level.Trial)
@@ -65,7 +65,7 @@ public class FlatBufferUserState implements BenchmarkState {
                 .setPopulation(TOKIO_POPULATION)
                 .build();
 
-        userProto = UserProto.User
+        user = UserProto.User
                 .newBuilder()
                 .setId(ID_1)
                 .setName(NAME)
@@ -77,6 +77,6 @@ public class FlatBufferUserState implements BenchmarkState {
                 .setSignature(ByteString.copyFrom(SIGNATURE))
                 .build();
 
-        serializedUser = userProto.toByteArray();
+        serializedUser = user.toByteArray();
     }
 }

@@ -19,7 +19,7 @@ public class CapnprotoBenchmark extends ParentBenchmark<CapnprotoUserState, Stru
     @Override
     public byte[] serializationBenchmark(CapnprotoUserState state) {
         try (ArrayOutputStream os = new ArrayOutputStream(ByteBuffer.allocate(1024))) {
-            Serialize.write(os, state.outputMessage);
+            Serialize.write(os, state.user);
             return os.getWriteBuffer().array();
         } catch (IOException e) {
             e.printStackTrace();
@@ -41,7 +41,6 @@ public class CapnprotoBenchmark extends ParentBenchmark<CapnprotoUserState, Stru
 }
 
 //java 8
-
 //    Benchmark                                    Mode  Cnt    Score    Error  Units
 //    CapnprotoBenchmark.deSerializationBenchmark  avgt   10  139.210 ± 24.013  ns/op
 //    CapnprotoBenchmark.serializationBenchmark    avgt   10  140.925 ± 17.287  ns/op

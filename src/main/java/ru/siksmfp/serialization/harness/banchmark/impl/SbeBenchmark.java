@@ -76,13 +76,12 @@ public class SbeBenchmark extends ParentBenchmark<SbeUserState, String> {
     @Override
     public String deSerializationBenchmark(SbeUserState state) {
         UserDecoder userDecoder = new UserDecoder();
-        userDecoder.wrap(state.unsafeBuffer, 8, 208, 1);
+        userDecoder.wrap(state.serializedUser, 8, 208, 1);
         return userDecoder.toString();
     }
 }
 
 //java 8
-
 //    Benchmark                              Mode  Cnt     Score     Error  Units
 //    SbeBenchmark.deSerializationBenchmark  avgt   10   796.330 ±  68.448  ns/op
 //    SbeBenchmark.serializationBenchmark    avgt   10  1221.958 ± 115.757  ns/op

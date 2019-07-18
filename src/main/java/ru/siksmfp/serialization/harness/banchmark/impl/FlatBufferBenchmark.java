@@ -11,7 +11,7 @@ public class FlatBufferBenchmark extends ParentBenchmark<FlatBufferUserState, Us
     @Benchmark
     @Override
     public byte[] serializationBenchmark(FlatBufferUserState state) {
-        return state.userProto.toByteArray();
+        return state.user.toByteArray();
     }
 
     @Benchmark

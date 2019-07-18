@@ -32,7 +32,7 @@ public class FlatBufferBenchmarkCorrectness {
     @Test
     void deSerializationCorrectness() {
         UserProto.User actualResult = benchmark.deSerializationBenchmark(userState);
-        UserProto.User expectedResult = userState.userProto;
+        UserProto.User expectedResult = userState.user;
         assertEquals(expectedResult, actualResult);
     }
 }

@@ -33,7 +33,7 @@ public class CapnprotoBenchmarkCorrectnessTest {
     @Test
     void deSerializationCorrectness() {
         UserModel.User.Reader actualResult = benchmark.deSerializationBenchmark(userState);
-        UserModel.User.Reader expectedResult = userState.outputMessage.getRoot(UserModel.User.factory).asReader();
+        UserModel.User.Reader expectedResult = userState.user.getRoot(UserModel.User.factory).asReader();
 
         assertEquals(expectedResult.getId(), actualResult.getId());
         assertEquals(expectedResult.getName().toString(), actualResult.getName().toString());

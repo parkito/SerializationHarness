@@ -5,7 +5,6 @@ import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
-import ru.siksmfp.serialization.harness.model.proto.UserProto;
 import ru.siksmfp.serialization.harness.model.sbe.MessageHeaderEncoder;
 import ru.siksmfp.serialization.harness.model.sbe.UserEncoder;
 import ru.siksmfp.serialization.harness.state.api.BenchmarkState;
@@ -33,23 +32,23 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_P
 @State(Scope.Benchmark)
 public class SbeUserState implements BenchmarkState {
 
-    public UserEncoder userEncoder;
-    public UnsafeBuffer unsafeBuffer;
+    public UserEncoder user;
+    public UnsafeBuffer serializedUser;
 
     @Setup(Level.Trial)
     @Override
     public void setUp() {
 
-        unsafeBuffer = new UnsafeBuffer();
-        unsafeBuffer.wrap(ByteBuffer.allocateDirect(1024));
+        serializedUser = new UnsafeBuffer();
+        serializedUser.wrap(ByteBuffer.allocateDirect(1024));
 
-        userEncoder = new UserEncoder();
-        userEncoder.wrapAndApplyHeader(unsafeBuffer, 0, new MessageHeaderEncoder());
+        user = new UserEncoder();
+        user.wrapAndApplyHeader(serializedUser, 0, new MessageHeaderEncoder());
 
-        userEncoder.name(NAME);
-        userEncoder.signature(new String(SIGNATURE));
+        user.name(NAME);
+        user.signature(new String(SIGNATURE));
 
-        UserEncoder.AddressesEncoder addresses = userEncoder.addressesCount(5);
+        UserEncoder.AddressesEncoder addresses = user.addressesCount(5);
 
         addresses.id(ID_1);
         addresses.population(MOSCOW_POPULATION);

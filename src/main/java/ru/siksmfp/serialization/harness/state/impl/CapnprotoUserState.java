@@ -35,15 +35,15 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_P
 @State(Scope.Benchmark)
 public class CapnprotoUserState implements BenchmarkState {
 
-    public MessageBuilder outputMessage;
+    public MessageBuilder user;
     public byte[] serializedUser;
 
     @Setup(Level.Trial)
     @Override
     public void setUp() {
-        outputMessage = new MessageBuilder();
+        user = new MessageBuilder();
 
-        UserModel.User.Builder user = outputMessage.initRoot(UserModel.User.factory);
+        UserModel.User.Builder user = this.user.initRoot(UserModel.User.factory);
         user.setId(ID_1);
         user.setName(NAME);
         user.setSignature(SIGNATURE);
@@ -76,7 +76,7 @@ public class CapnprotoUserState implements BenchmarkState {
         address5.setPopulation(TOKIO_POPULATION);
 
         try (ArrayOutputStream os = new ArrayOutputStream(ByteBuffer.allocate(1024))) {
-            Serialize.write(os, outputMessage);
+            Serialize.write(os, this.user);
             serializedUser = os.getWriteBuffer().array();
         } catch (IOException e) {
             e.printStackTrace();
