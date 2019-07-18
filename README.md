@@ -1,4 +1,4 @@
-# SerializationHarness
+# Java Serialization Harness
 
 Performance testing of Java serialization frameworks
 
