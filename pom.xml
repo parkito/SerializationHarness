@@ -48,7 +48,6 @@
             <artifactId>sbe-all</artifactId>
             <version>1.12.8</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.agrona/agrona -->
         <dependency>
             <groupId>org.agrona</groupId>
             <artifactId>agrona</artifactId>
@@ -59,14 +58,11 @@
             <artifactId>runtime</artifactId>
             <version>0.1.4</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
             <version>1.3.2</version>
         </dependency>
-
     </dependencies>
 
     <build>

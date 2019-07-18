@@ -27,6 +27,10 @@ public class SimpleBenchmark {
     public String findLinkedListBenchmark(ListState listState) {
         return listState.linkedList.get(900);
     }
+
+    public static void main(String[] args) throws Exception {
+        org.openjdk.jmh.Main.main(args);
+    }
 }
 
 //java 8

@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 @Warmup(iterations = 5)
 public abstract class ParentBenchmark<S extends BenchmarkState, M> {
 
-    protected abstract byte[] serializationBenchmark(S state);
+    public abstract byte[] serializationBenchmark(S state);
 
-    protected abstract M deSerializationBenchmark(S state);
+    public abstract M deSerializationBenchmark(S state);
 }

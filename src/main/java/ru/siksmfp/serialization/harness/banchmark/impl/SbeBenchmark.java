@@ -30,7 +30,7 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_P
 
 public class SbeBenchmark extends ParentBenchmark<SbeUserState, String> {
 
-//    @Benchmark
+    @Benchmark
     @Override
     public byte[] serializationBenchmark(SbeUserState state) {
         UnsafeBuffer unsafeBuffer = new UnsafeBuffer();
@@ -72,7 +72,7 @@ public class SbeBenchmark extends ParentBenchmark<SbeUserState, String> {
         return userEncoder.buffer().byteArray();
     }
 
-//    @Benchmark
+    @Benchmark
     @Override
     public String deSerializationBenchmark(SbeUserState state) {
         UserDecoder userDecoder = new UserDecoder();
