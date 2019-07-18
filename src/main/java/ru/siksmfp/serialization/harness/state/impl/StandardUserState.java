@@ -46,7 +46,7 @@ public class StandardUserState implements BenchmarkState {
         Address address4 = new Address(ID_4, VLADIVASTOK_CITY, VLADIVASTOK_POPULATION);
         Address address5 = new Address(ID_5, TOKIO_CITY, TOKIO_POPULATION);
 
-        User user = new User();
+        user = new User();
         user.setId(ID_1);
         user.setName(NAME);
         user.setAddresses(Arrays.asList(address1, address2, address3, address4, address4, address5));

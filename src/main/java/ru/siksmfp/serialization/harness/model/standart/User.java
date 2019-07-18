@@ -1,7 +1,9 @@
 package ru.siksmfp.serialization.harness.model.standart;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class User implements Serializable {
 
@@ -42,5 +44,23 @@ public class User implements Serializable {
 
     public void setAddresses(List<Address> addresses) {
         this.addresses = addresses;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) &&
+                Objects.equals(name, user.name) &&
+                Arrays.equals(signature, user.signature) &&
+                Objects.equals(addresses, user.addresses);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(id, name, addresses);
+        result = 31 * result + Arrays.hashCode(signature);
+        return result;
     }
 }
