@@ -8,6 +8,8 @@ import org.openjdk.jmh.annotations.State;
 import ru.siksmfp.serialization.harness.model.proto.UserProto;
 import ru.siksmfp.serialization.harness.state.api.BenchmarkState;
 
+import java.nio.ByteBuffer;
+
 import static ru.siksmfp.serialization.harness.state.StateConstant.DZRERZHINSK_CITY;
 import static ru.siksmfp.serialization.harness.state.StateConstant.DZRERZHINSK_POPULATION;
 import static ru.siksmfp.serialization.harness.state.StateConstant.ID_1;
@@ -27,10 +29,20 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_C
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_POPULATION;
 
 @State(Scope.Benchmark)
-public class FlatBufferUserState implements BenchmarkState {
+public class FlatBufferUserState implements BenchmarkState<UserProto.User, ByteBuffer> {
 
-    public UserProto.User user;
-    public byte[] serializedUser;
+    private UserProto.User user;
+    private ByteBuffer serializedUser;
+
+    @Override
+    public UserProto.User getInputObject() {
+        return user;
+    }
+
+    @Override
+    public ByteBuffer getOutputObject() {
+        return serializedUser;
+    }
 
     @Setup(Level.Trial)
     @Override
@@ -77,6 +89,6 @@ public class FlatBufferUserState implements BenchmarkState {
                 .setSignature(ByteString.copyFrom(SIGNATURE))
                 .build();
 
-        serializedUser = user.toByteArray();
+        serializedUser = ByteBuffer.wrap(user.toByteArray());
     }
 }

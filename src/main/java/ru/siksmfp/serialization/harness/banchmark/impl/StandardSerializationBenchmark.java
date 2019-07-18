@@ -18,7 +18,7 @@ public class StandardSerializationBenchmark extends ParentBenchmark<StandardUser
     public byte[] serializationBenchmark(StandardUserState state) {
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
              ObjectOutputStream out = new ObjectOutputStream(bos)) {
-            out.writeObject(state.user);
+            out.writeObject(state.getInputObject());
             out.flush();
             return bos.toByteArray();
         } catch (IOException e) {
@@ -29,7 +29,7 @@ public class StandardSerializationBenchmark extends ParentBenchmark<StandardUser
 
     @Benchmark
     public User deSerializationBenchmark(StandardUserState state) {
-        try (ByteArrayInputStream bis = new ByteArrayInputStream(state.serializedUser);
+        try (ByteArrayInputStream bis = new ByteArrayInputStream(state.getOutputObject().array());
              ObjectInput in = new ObjectInputStream(bis)) {
             return (User) in.readObject();
         } catch (Exception ex) {

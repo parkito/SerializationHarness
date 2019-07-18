@@ -11,7 +11,7 @@ public class CoflerBenchmark extends ParentBenchmark<CoflerUserState, User> {
     @Override
     public byte[] serializationBenchmark(CoflerUserState state) {
         byte[] bytes = new byte[1024];
-        state.user.marshal(bytes, 0);
+        state.getInputObject().marshal(bytes, 0);
         return bytes;
     }
 
@@ -19,7 +19,7 @@ public class CoflerBenchmark extends ParentBenchmark<CoflerUserState, User> {
     @Override
     public User deSerializationBenchmark(CoflerUserState state) {
         User user = new User();
-        user.unmarshal(state.serializedUser, 0);
+        user.unmarshal(state.getOutputObject().array(), 0);
         return user;
     }
 

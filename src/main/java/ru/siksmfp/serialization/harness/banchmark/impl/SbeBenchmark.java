@@ -76,7 +76,7 @@ public class SbeBenchmark extends ParentBenchmark<SbeUserState, String> {
     @Override
     public String deSerializationBenchmark(SbeUserState state) {
         UserDecoder userDecoder = new UserDecoder();
-        userDecoder.wrap(state.serializedUser, 8, 208, 1);
+        userDecoder.wrap(state.getOutputObject(), 8, 208, 1);
         return userDecoder.toString();
     }
 }

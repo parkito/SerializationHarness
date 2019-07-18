@@ -9,6 +9,8 @@ import ru.siksmfp.serialization.harness.model.cofler.User;
 import ru.siksmfp.serialization.harness.state.StateConstant;
 import ru.siksmfp.serialization.harness.state.api.BenchmarkState;
 
+import java.nio.ByteBuffer;
+
 import static ru.siksmfp.serialization.harness.state.StateConstant.DZRERZHINSK_CITY;
 import static ru.siksmfp.serialization.harness.state.StateConstant.DZRERZHINSK_POPULATION;
 import static ru.siksmfp.serialization.harness.state.StateConstant.ID_1;
@@ -27,16 +29,26 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_C
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_POPULATION;
 
 @State(Scope.Benchmark)
-public class CoflerUserState implements BenchmarkState {
+public class CoflerUserState implements BenchmarkState<User, ByteBuffer> {
 
-    public User user;
-    public byte[] serializedUser;
+    private User user;
+    private ByteBuffer serializedUser;
+
+    @Override
+    public User getInputObject() {
+        return user;
+    }
+
+    @Override
+    public ByteBuffer getOutputObject() {
+        return serializedUser;
+    }
 
     @Setup(Level.Trial)
     @Override
     public void setUp() {
         user = new User();
-        serializedUser = new byte[1024];
+        byte[] bytes = new byte[1024];
 
         user.setId(ID_1);
         user.setName(StateConstant.NAME);
@@ -68,6 +80,8 @@ public class CoflerUserState implements BenchmarkState {
         address5.setPopulation(TOKIO_POPULATION);
 
         user.setAddresses(new Address[]{address1, address2, address3, address4, address5});
-        user.marshal(serializedUser, 0);
+        user.marshal(bytes, 0);
+
+        serializedUser = ByteBuffer.wrap(bytes);
     }
 }

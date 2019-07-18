@@ -24,14 +24,14 @@ public class SbeBenchmarkCorrectnessTest {
     @Test
     void serializationCorrectness() {
         byte[] actualResult = benchmark.serializationBenchmark(userState);
-        byte[] expectedResult = userState.serializedUser.byteArray();
+        byte[] expectedResult = userState.getOutputObject().byteArray();
         assertArrayEquals(expectedResult, actualResult);
     }
 
     @Test
     void deSerializationCorrectness() {
         String actualResult = benchmark.deSerializationBenchmark(userState);
-        String expectedResult = userState.user.toString();
+        String expectedResult = userState.getInputObject().toString();
         assertEquals(expectedResult, actualResult);
     }
 }

@@ -11,14 +11,14 @@ public class FlatBufferBenchmark extends ParentBenchmark<FlatBufferUserState, Us
     @Benchmark
     @Override
     public byte[] serializationBenchmark(FlatBufferUserState state) {
-        return state.user.toByteArray();
+        return state.getInputObject().toByteArray();
     }
 
     @Benchmark
     @Override
     public UserProto.User deSerializationBenchmark(FlatBufferUserState state) {
         try {
-            return UserProto.User.parseFrom(state.serializedUser);
+            return UserProto.User.parseFrom(state.getOutputObject());
         } catch (InvalidProtocolBufferException e) {
             e.printStackTrace();
             return null;

@@ -20,12 +20,12 @@ public class SimpleBenchmark {
 
     @Benchmark
     public String findArrayListBenchmark(ListState listState) {
-        return listState.arrayList.get(900);
+        return listState.getInputObject().get(900);
     }
 
     @Benchmark
     public String findLinkedListBenchmark(ListState listState) {
-        return listState.linkedList.get(900);
+        return listState.getOutputObject().get(900);
     }
 
     public static void main(String[] args) throws Exception {

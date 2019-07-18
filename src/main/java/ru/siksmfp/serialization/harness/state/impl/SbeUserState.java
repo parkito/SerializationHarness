@@ -30,10 +30,20 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_C
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_POPULATION;
 
 @State(Scope.Benchmark)
-public class SbeUserState implements BenchmarkState {
+public class SbeUserState implements BenchmarkState<UserEncoder, UnsafeBuffer> {
 
-    public UserEncoder user;
-    public UnsafeBuffer serializedUser;
+    private UserEncoder user;
+    private UnsafeBuffer serializedUser;
+
+    @Override
+    public UserEncoder getInputObject() {
+        return user;
+    }
+
+    @Override
+    public UnsafeBuffer getOutputObject() {
+        return serializedUser;
+    }
 
     @Setup(Level.Trial)
     @Override

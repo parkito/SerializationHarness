@@ -19,7 +19,7 @@ public class CapnprotoBenchmark extends ParentBenchmark<CapnprotoUserState, Stru
     @Override
     public byte[] serializationBenchmark(CapnprotoUserState state) {
         try (ArrayOutputStream os = new ArrayOutputStream(ByteBuffer.allocate(1024))) {
-            Serialize.write(os, state.user);
+            Serialize.write(os, state.getInputObject());
             return os.getWriteBuffer().array();
         } catch (IOException e) {
             e.printStackTrace();
@@ -31,7 +31,7 @@ public class CapnprotoBenchmark extends ParentBenchmark<CapnprotoUserState, Stru
     @Override
     public UserModel.User.Reader deSerializationBenchmark(CapnprotoUserState state) {
         try {
-            MessageReader read = Serialize.read(new ArrayInputStream(ByteBuffer.wrap(state.serializedUser)));
+            MessageReader read = Serialize.read(new ArrayInputStream(ByteBuffer.wrap(state.getOutputObject().array())));
             return read.getRoot(UserModel.User.factory);
         } catch (IOException e) {
             e.printStackTrace();

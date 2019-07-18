@@ -25,14 +25,14 @@ public class StandardSerializationBenchmarkCorrectnessTest {
     @Test
     void serializationCorrectness() {
         byte[] actualResult = benchmark.serializationBenchmark(userState);
-        byte[] expectedResult = userState.serializedUser;
+        byte[] expectedResult = userState.getOutputObject().array();
         assertArrayEquals(expectedResult, actualResult);
     }
 
     @Test
     void deSerializationCorrectness() {
         User actualResult = benchmark.deSerializationBenchmark(userState);
-        User expectedResult = userState.user;
+        User expectedResult = userState.getInputObject();
         assertEquals(expectedResult, actualResult);
     }
 }

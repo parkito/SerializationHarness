@@ -33,10 +33,20 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_C
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_POPULATION;
 
 @State(Scope.Benchmark)
-public class CapnprotoUserState implements BenchmarkState {
+public class CapnprotoUserState implements BenchmarkState<MessageBuilder, ByteBuffer> {
 
-    public MessageBuilder user;
-    public byte[] serializedUser;
+    private MessageBuilder user;
+    private ByteBuffer serializedUser;
+
+    @Override
+    public MessageBuilder getInputObject() {
+        return user;
+    }
+
+    @Override
+    public ByteBuffer getOutputObject() {
+        return serializedUser;
+    }
 
     @Setup(Level.Trial)
     @Override
@@ -77,7 +87,7 @@ public class CapnprotoUserState implements BenchmarkState {
 
         try (ArrayOutputStream os = new ArrayOutputStream(ByteBuffer.allocate(1024))) {
             Serialize.write(os, this.user);
-            serializedUser = os.getWriteBuffer().array();
+            serializedUser = os.getWriteBuffer();
         } catch (IOException e) {
             e.printStackTrace();
         }

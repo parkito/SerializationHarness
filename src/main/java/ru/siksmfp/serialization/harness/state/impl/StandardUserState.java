@@ -11,6 +11,7 @@ import ru.siksmfp.serialization.harness.state.api.BenchmarkState;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 import static ru.siksmfp.serialization.harness.state.StateConstant.DZRERZHINSK_CITY;
@@ -32,10 +33,20 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_C
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_POPULATION;
 
 @State(Scope.Benchmark)
-public class StandardUserState implements BenchmarkState {
+public class StandardUserState implements BenchmarkState<User, ByteBuffer> {
 
-    public User user;
-    public byte[] serializedUser;
+    private User user;
+    private ByteBuffer serializedUser;
+
+    @Override
+    public User getInputObject() {
+        return user;
+    }
+
+    @Override
+    public ByteBuffer getOutputObject() {
+        return serializedUser;
+    }
 
     @Setup(Level.Trial)
     @Override
@@ -56,7 +67,7 @@ public class StandardUserState implements BenchmarkState {
              ObjectOutputStream out = new ObjectOutputStream(bos)) {
             out.writeObject(user);
             out.flush();
-            serializedUser = bos.toByteArray();
+            serializedUser = ByteBuffer.wrap(bos.toByteArray());
         } catch (IOException e) {
             e.printStackTrace();
             throw new IllegalStateException("Incorrect serialization process");

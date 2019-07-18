@@ -25,14 +25,14 @@ public class FlatBufferBenchmarkCorrectness {
     @Test
     void serializationCorrectness() {
         byte[] actualResult = benchmark.serializationBenchmark(userState);
-        byte[] expectedResult = userState.serializedUser;
+        byte[] expectedResult = userState.getOutputObject().array();
         assertArrayEquals(expectedResult, actualResult);
     }
 
     @Test
     void deSerializationCorrectness() {
         UserProto.User actualResult = benchmark.deSerializationBenchmark(userState);
-        UserProto.User expectedResult = userState.user;
+        UserProto.User expectedResult = userState.getInputObject();
         assertEquals(expectedResult, actualResult);
     }
 }

@@ -11,10 +11,20 @@ import java.util.LinkedList;
 import java.util.List;
 
 @State(Scope.Benchmark)
-public class ListState implements BenchmarkState {
+public class ListState implements BenchmarkState<List<String> ,List<String> > {
 
-    public List<String> arrayList;
-    public List<String> linkedList;
+    private List<String> arrayList;
+    private List<String> linkedList;
+
+    @Override
+    public List<String> getInputObject() {
+        return arrayList;
+    }
+
+    @Override
+    public List<String> getOutputObject() {
+        return linkedList;
+    }
 
     @Setup(Level.Trial)
     @Override
