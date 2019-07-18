@@ -1,6 +1,7 @@
 package ru.siksmfp.serialization.harness.model.standart;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Address implements Serializable {
 
@@ -38,5 +39,20 @@ public class Address implements Serializable {
 
     public void setPopulation(int population) {
         this.population = population;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return population == address.population &&
+                Objects.equals(id, address.id) &&
+                Objects.equals(city, address.city);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, city, population);
     }
 }
