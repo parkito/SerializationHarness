@@ -33,7 +33,7 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_P
 @State(Scope.Benchmark)
 public class SbeUserState implements BenchmarkState {
 
-    public UserProto.User userProto;
+    public UserEncoder userEncoder;
     public UnsafeBuffer unsafeBuffer;
 
     @Setup(Level.Trial)
@@ -43,7 +43,7 @@ public class SbeUserState implements BenchmarkState {
         unsafeBuffer = new UnsafeBuffer();
         unsafeBuffer.wrap(ByteBuffer.allocateDirect(1024));
 
-        UserEncoder userEncoder = new UserEncoder();
+        userEncoder = new UserEncoder();
         userEncoder.wrapAndApplyHeader(unsafeBuffer, 0, new MessageHeaderEncoder());
 
         userEncoder.name(NAME);
