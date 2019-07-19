@@ -1,4 +1,4 @@
-package ru.siksmfp.serialization.harness.serializetion.impl;
+package ru.siksmfp.serialization.harness.model.converter.impl;
 
 import org.capnproto.MessageReader;
 import ru.siksmfp.serialization.harness.model.converter.api.Converter;

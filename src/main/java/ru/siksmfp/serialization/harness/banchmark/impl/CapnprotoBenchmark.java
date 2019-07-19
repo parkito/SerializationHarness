@@ -15,7 +15,7 @@ import ru.siksmfp.serialization.harness.state.impl.InputUserState;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-public class CapnprotoBenchmark extends ParentBenchmark<CapnprotoUserState, User> {
+public class CapnprotoBenchmark extends ParentBenchmark<CapnprotoUserState> {
 
     private Serializer<User> serializer = new CapnprotoSerializer();
 
@@ -29,7 +29,6 @@ public class CapnprotoBenchmark extends ParentBenchmark<CapnprotoUserState, User
     @Override
     public User deSerializationBenchmark(CapnprotoUserState state) {
         return serializer.deSerialize(state.getOutputObject());
-
     }
 
     public static void main(String[] args) {

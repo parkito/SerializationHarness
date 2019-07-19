@@ -4,12 +4,13 @@ import org.openjdk.jmh.annotations.Benchmark;
 import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
 import ru.siksmfp.serialization.harness.model.cofler.User;
 import ru.siksmfp.serialization.harness.state.impl.CoflerUserState;
+import ru.siksmfp.serialization.harness.state.impl.InputUserState;
 
-public class CoflerBenchmark extends ParentBenchmark<CoflerUserState, User> {
+public class CoflerBenchmark extends ParentBenchmark<CoflerUserState> {
 
     @Benchmark
     @Override
-    public byte[] serializationBenchmark(CoflerUserState state) {
+    public byte[] serializationBenchmark(InputUserState state) {
         byte[] bytes = new byte[1024];
         state.getInputObject().marshal(bytes, 0);
         return bytes;
