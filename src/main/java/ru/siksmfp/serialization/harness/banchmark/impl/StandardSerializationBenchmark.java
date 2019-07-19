@@ -2,40 +2,23 @@ package ru.siksmfp.serialization.harness.banchmark.impl;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
+import ru.siksmfp.serialization.harness.converter.api.Serializer;
+import ru.siksmfp.serialization.harness.converter.impl.StandardSerializer;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.state.impl.StandardUserState;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
 public class StandardSerializationBenchmark extends ParentBenchmark<StandardUserState, User> {
+
+    private Serializer<User> serializer = new StandardSerializer();
 
     @Benchmark
     public byte[] serializationBenchmark(StandardUserState state) {
-        try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
-             ObjectOutputStream out = new ObjectOutputStream(bos)) {
-            out.writeObject(state.getInputObject());
-            out.flush();
-            return bos.toByteArray();
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new IllegalStateException("Incorrect serialization process");
-        }
+        return serializer.serialize(state.getInputObject());
     }
 
     @Benchmark
     public User deSerializationBenchmark(StandardUserState state) {
-        try (ByteArrayInputStream bis = new ByteArrayInputStream(state.getOutputObject().array());
-             ObjectInput in = new ObjectInputStream(bis)) {
-            return (User) in.readObject();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new IllegalStateException("Incorrect de-serialization process");
-        }
+        return serializer.deSerialize(state.getOutputObject().array());
     }
 }
 

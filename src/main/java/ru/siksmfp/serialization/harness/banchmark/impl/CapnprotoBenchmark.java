@@ -38,6 +38,18 @@ public class CapnprotoBenchmark extends ParentBenchmark<CapnprotoUserState, Stru
             return null;
         }
     }
+
+    public static void main(String[] args) {
+        CapnprotoUserState state = new CapnprotoUserState();
+        state.setUp();
+        try (ArrayOutputStream os = new ArrayOutputStream(ByteBuffer.allocate(1024))) {
+            Serialize.write(os, state.getInputObject());
+            System.out.println(Serialize.read(new ArrayInputStream(ByteBuffer.wrap(os.getWriteBuffer().array())))
+                    .getRoot(UserModel.User.factory).getName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 //java 8

@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CoflerBenchmarkCorrectnessTest extends ParentBenchmarkTest<CoflerUserState, CoflerBenchmark> {
 
-
     public CoflerBenchmarkCorrectnessTest() {
         super(new CoflerUserState(), new CoflerBenchmark());
     }
