@@ -2,41 +2,34 @@ package ru.siksmfp.serialization.harness.banchmark.impl;
 
 import org.capnproto.ArrayInputStream;
 import org.capnproto.ArrayOutputStream;
-import org.capnproto.MessageReader;
 import org.capnproto.Serialize;
-import org.capnproto.StructReader;
 import org.openjdk.jmh.annotations.Benchmark;
 import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
 import ru.siksmfp.serialization.harness.model.capnp.UserModel;
+import ru.siksmfp.serialization.harness.model.standart.User;
+import ru.siksmfp.serialization.harness.serializetion.api.Serializer;
+import ru.siksmfp.serialization.harness.serializetion.impl.CapnprotoSerializer;
 import ru.siksmfp.serialization.harness.state.impl.CapnprotoUserState;
+import ru.siksmfp.serialization.harness.state.impl.InputUserState;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-public class CapnprotoBenchmark extends ParentBenchmark<CapnprotoUserState, StructReader> {
+public class CapnprotoBenchmark extends ParentBenchmark<CapnprotoUserState, User> {
+
+    private Serializer<User> serializer = new CapnprotoSerializer();
 
     @Benchmark
     @Override
-    public byte[] serializationBenchmark(CapnprotoUserState state) {
-        try (ArrayOutputStream os = new ArrayOutputStream(ByteBuffer.allocate(1024))) {
-            Serialize.write(os, state.getInputObject());
-            return os.getWriteBuffer().array();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+    public byte[] serializationBenchmark(InputUserState state) {
+        return serializer.serialize(state.getInputObject());
     }
 
     @Benchmark
     @Override
-    public UserModel.User.Reader deSerializationBenchmark(CapnprotoUserState state) {
-        try {
-            MessageReader read = Serialize.read(new ArrayInputStream(ByteBuffer.wrap(state.getOutputObject().array())));
-            return read.getRoot(UserModel.User.factory);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+    public User deSerializationBenchmark(CapnprotoUserState state) {
+        return serializer.deSerialize(state.getOutputObject());
+
     }
 
     public static void main(String[] args) {

@@ -4,7 +4,7 @@ public interface BenchmarkState<I,O> {
 
     I getInputObject();
 
-    O getOutputObject();
+    byte[] getOutputObject();
 
     void setUp();
 

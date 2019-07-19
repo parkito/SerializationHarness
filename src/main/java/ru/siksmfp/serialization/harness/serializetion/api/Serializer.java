@@ -1,4 +1,4 @@
-package ru.siksmfp.serialization.harness.converter.api;
+package ru.siksmfp.serialization.harness.serializetion.api;
 
 public interface Serializer<T> {
 

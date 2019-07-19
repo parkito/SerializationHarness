@@ -44,7 +44,7 @@ public class CapnprotoUserState implements BenchmarkState<MessageBuilder, ByteBu
     }
 
     @Override
-    public ByteBuffer getOutputObject() {
+    public byte[] getOutputObject() {
         return serializedUser;
     }
 

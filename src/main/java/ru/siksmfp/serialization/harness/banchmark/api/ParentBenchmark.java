@@ -7,6 +7,7 @@ import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Warmup;
 import ru.siksmfp.serialization.harness.state.api.BenchmarkState;
+import ru.siksmfp.serialization.harness.state.impl.InputUserState;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 @Warmup(iterations = 5)
 public abstract class ParentBenchmark<S extends BenchmarkState, M> {
 
-    public abstract byte[] serializationBenchmark(S state);
+    public abstract byte[] serializationBenchmark(InputUserState state);
 
     public abstract M deSerializationBenchmark(S state);
 }

@@ -1,16 +1,11 @@
 package ru.siksmfp.serialization.harness.state.impl;
 
 import org.openjdk.jmh.annotations.Level;
-import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
-import org.openjdk.jmh.annotations.State;
 import ru.siksmfp.serialization.harness.model.standart.Address;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.state.api.BenchmarkState;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 
@@ -32,11 +27,9 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.TOKIO_POPULAT
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_CITY;
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_POPULATION;
 
-@State(Scope.Benchmark)
-public class StandardUserState implements BenchmarkState<User, ByteBuffer> {
+public class InputUserState implements BenchmarkState<User, ByteBuffer> {
 
     private User user;
-    private ByteBuffer serializedUser;
 
     @Override
     public User getInputObject() {
@@ -45,8 +38,22 @@ public class StandardUserState implements BenchmarkState<User, ByteBuffer> {
 
     @Override
     public ByteBuffer getOutputObject() {
-        return serializedUser;
+        throw new IllegalStateException("Global state doesn't contain output object");
     }
 
+    @Setup(Level.Trial)
+    @Override
+    public void setUp() {
+        Address address1 = new Address(ID_1, MOSCOW_CITY, MOSCOW_POPULATION);
+        Address address2 = new Address(ID_2, SPB_CITY, SPB_POPULATION);
+        Address address3 = new Address(ID_3, DZRERZHINSK_CITY, DZRERZHINSK_POPULATION);
+        Address address4 = new Address(ID_4, VLADIVASTOK_CITY, VLADIVASTOK_POPULATION);
+        Address address5 = new Address(ID_5, TOKIO_CITY, TOKIO_POPULATION);
 
+        user = new User();
+        user.setId(ID_1);
+        user.setName(NAME);
+        user.setAddresses(Arrays.asList(address1, address2, address3, address4, address4, address5));
+        user.setSignature(SIGNATURE);
+    }
 }
