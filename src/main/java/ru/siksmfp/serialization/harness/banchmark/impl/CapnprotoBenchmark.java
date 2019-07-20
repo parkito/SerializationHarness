@@ -4,23 +4,21 @@ import org.openjdk.jmh.annotations.Benchmark;
 import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.serializetion.api.Serializer;
-import ru.siksmfp.serialization.harness.serializetion.impl.CapnprotoSerializer;
 import ru.siksmfp.serialization.harness.state.impl.CapnprotoUserState;
-import ru.siksmfp.serialization.harness.state.impl.InputUserState;
 
 public class CapnprotoBenchmark extends ParentBenchmark<CapnprotoUserState> {
 
-    private Serializer<User> serializer = new CapnprotoSerializer();
-
     @Benchmark
     @Override
-    public byte[] serializationBenchmark(InputUserState state) {
+    public byte[] serializationBenchmark(CapnprotoUserState state) {
+        Serializer<User> serializer = state.getSerializer();
         return serializer.serialize(state.getInputObject());
     }
 
     @Benchmark
     @Override
     public User deSerializationBenchmark(CapnprotoUserState state) {
+        Serializer<User> serializer = state.getSerializer();
         return serializer.deSerialize(state.getOutputObject());
     }
 }
