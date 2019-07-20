@@ -3,8 +3,8 @@ package ru.siksmfp.serialization.harness.state.impl;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 import ru.siksmfp.serialization.harness.model.standart.User;
-import ru.siksmfp.serialization.harness.serializetion.api.Serializer;
-import ru.siksmfp.serialization.harness.serializetion.impl.SbeSerializer;
+import ru.siksmfp.serialization.harness.serializer.api.Serializer;
+import ru.siksmfp.serialization.harness.serializer.impl.SbeSerializer;
 import ru.siksmfp.serialization.harness.state.api.InputState;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
 

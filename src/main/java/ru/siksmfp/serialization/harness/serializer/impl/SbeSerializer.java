@@ -1,4 +1,4 @@
-package ru.siksmfp.serialization.harness.serializetion.impl;
+package ru.siksmfp.serialization.harness.serializer.impl;
 
 import org.agrona.concurrent.UnsafeBuffer;
 import ru.siksmfp.serialization.harness.model.converter.api.Converter;
@@ -6,7 +6,7 @@ import ru.siksmfp.serialization.harness.model.converter.impl.SbeDecoderConverter
 import ru.siksmfp.serialization.harness.model.converter.impl.SbeEncoderConverter;
 import ru.siksmfp.serialization.harness.model.sbe.UserEncoder;
 import ru.siksmfp.serialization.harness.model.standart.User;
-import ru.siksmfp.serialization.harness.serializetion.api.Serializer;
+import ru.siksmfp.serialization.harness.serializer.api.Serializer;
 
 public class SbeSerializer implements Serializer<User> {
 

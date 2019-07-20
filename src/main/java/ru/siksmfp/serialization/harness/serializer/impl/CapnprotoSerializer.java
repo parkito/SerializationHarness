@@ -1,4 +1,4 @@
-package ru.siksmfp.serialization.harness.serializetion.impl;
+package ru.siksmfp.serialization.harness.serializer.impl;
 
 import org.capnproto.ArrayInputStream;
 import org.capnproto.ArrayOutputStream;
@@ -9,7 +9,7 @@ import ru.siksmfp.serialization.harness.model.converter.api.Converter;
 import ru.siksmfp.serialization.harness.model.converter.impl.CapnprotoBuilderConverter;
 import ru.siksmfp.serialization.harness.model.converter.impl.CapnprotoReaderConverter;
 import ru.siksmfp.serialization.harness.model.standart.User;
-import ru.siksmfp.serialization.harness.serializetion.api.Serializer;
+import ru.siksmfp.serialization.harness.serializer.api.Serializer;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

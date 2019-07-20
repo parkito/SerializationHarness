@@ -1,11 +1,11 @@
-package ru.siksmfp.serialization.harness.serializetion.impl;
+package ru.siksmfp.serialization.harness.serializer.impl;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import ru.siksmfp.serialization.harness.model.converter.api.Converter;
 import ru.siksmfp.serialization.harness.model.converter.impl.FlatBufferConverter;
 import ru.siksmfp.serialization.harness.model.proto.UserProto;
 import ru.siksmfp.serialization.harness.model.standart.User;
-import ru.siksmfp.serialization.harness.serializetion.api.Serializer;
+import ru.siksmfp.serialization.harness.serializer.api.Serializer;
 
 public class FlatBufferSerializer implements Serializer<User> {
 

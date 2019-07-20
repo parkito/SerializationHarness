@@ -1,8 +1,8 @@
-package ru.siksmfp.serialization.harness.serializetion.impl;
+package ru.siksmfp.serialization.harness.serializer.impl;
 
 import ru.siksmfp.serialization.harness.model.converter.impl.CoflerConverter;
 import ru.siksmfp.serialization.harness.model.standart.User;
-import ru.siksmfp.serialization.harness.serializetion.api.Serializer;
+import ru.siksmfp.serialization.harness.serializer.api.Serializer;
 
 public class CoflerSerializer implements Serializer<User> {
 

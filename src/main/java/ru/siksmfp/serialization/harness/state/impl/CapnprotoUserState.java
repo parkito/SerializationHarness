@@ -5,8 +5,8 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import ru.siksmfp.serialization.harness.model.standart.User;
-import ru.siksmfp.serialization.harness.serializetion.api.Serializer;
-import ru.siksmfp.serialization.harness.serializetion.impl.CapnprotoSerializer;
+import ru.siksmfp.serialization.harness.serializer.api.Serializer;
+import ru.siksmfp.serialization.harness.serializer.impl.CapnprotoSerializer;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
 
 @State(Scope.Benchmark)

@@ -3,7 +3,7 @@ package ru.siksmfp.serialization.harness.corrctness.api;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.siksmfp.serialization.harness.model.standart.User;
-import ru.siksmfp.serialization.harness.serializetion.api.Serializer;
+import ru.siksmfp.serialization.harness.serializer.api.Serializer;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
 import ru.siksmfp.serialization.harness.state.impl.InputUserState;
 
