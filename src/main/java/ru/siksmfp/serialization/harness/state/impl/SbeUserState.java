@@ -41,7 +41,7 @@ public class SbeUserState implements BenchmarkState<UserEncoder, UnsafeBuffer> {
     }
 
     @Override
-    public UnsafeBuffer getOutputObject() {
+    public byte[] getOutputObject() {
         return serializedUser;
     }
 
