@@ -29,7 +29,7 @@ public abstract class ParentSerializationTest {
     }
 
     @Test
-    public void serializationCorrectness() {
+    void serializationCorrectness() {
         byte[] actualResult = outputState.getOutputObject();
         byte[] expectedResult = serializer.serialize(inputUserState.getInputObject());
 
@@ -37,7 +37,7 @@ public abstract class ParentSerializationTest {
     }
 
     @Test
-    public void deSerializationCorrectness() {
+    void deSerializationCorrectness() {
         User dto = inputUserState.getInputObject();
         byte[] bytes = serializer.serialize(dto);
         User deserializedUser = serializer.deSerialize(bytes);

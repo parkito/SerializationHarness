@@ -4,7 +4,7 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.serializer.api.Serializer;
-import ru.siksmfp.serialization.harness.serializer.impl.SbeSerializer;
+import ru.siksmfp.serialization.harness.serializer.impl.StandardSerializer;
 import ru.siksmfp.serialization.harness.state.api.InputState;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
 
@@ -36,7 +36,7 @@ public class StandardUserState implements OutputState, InputState<User> {
         userState.setUp();
 
         user = userState.getInputObject();
-        serializer = new SbeSerializer();
+        serializer = new StandardSerializer();
         serializedUser = this.serializer.serialize(userState.getInputObject());
     }
 }
