@@ -9,9 +9,7 @@ import ru.siksmfp.serialization.harness.model.standart.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ru.siksmfp.serialization.harness.state.StateConstant.SIGNATURE;
-
-public class FlatBufferaConverter implements Converter<UserProto.User, User> {
+public class FlatBufferConverter implements Converter<UserProto.User, User> {
 
     @Override
     public UserProto.User toModel(User dto) {
@@ -19,7 +17,7 @@ public class FlatBufferaConverter implements Converter<UserProto.User, User> {
                 .newBuilder()
                 .setId(dto.getId())
                 .setName(dto.getName())
-                .setSignature(ByteString.copyFrom(SIGNATURE))
+                .setSignature(ByteString.copyFrom(dto.getSignature()))
                 .addAllAddresses(toModelAddress(dto.getAddresses()))
                 .build();
     }
