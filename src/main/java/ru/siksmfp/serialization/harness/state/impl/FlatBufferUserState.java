@@ -40,7 +40,7 @@ public class FlatBufferUserState implements BenchmarkState<UserProto.User, ByteB
     }
 
     @Override
-    public ByteBuffer getOutputObject() {
+    public byte[] getOutputObject() {
         return serializedUser;
     }
 
