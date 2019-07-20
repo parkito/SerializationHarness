@@ -1,7 +1,9 @@
 package ru.siksmfp.serialization.harness.state.impl;
 
 import org.openjdk.jmh.annotations.Level;
+import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
 import ru.siksmfp.serialization.harness.model.standart.Address;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.state.api.InputState;
@@ -26,6 +28,7 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.TOKIO_POPULAT
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_CITY;
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_POPULATION;
 
+@State(Scope.Benchmark)
 public class InputUserState implements InputState<User> {
 
     private User user;

@@ -19,7 +19,7 @@ public class StandardSerializationBenchmark extends ParentBenchmark<StandardUser
 
     @Benchmark
     public User deSerializationBenchmark(StandardUserState state) {
-        return serializer.deSerialize(state.getOutputObject().array());
+        return serializer.deSerialize(state.getOutputObject());
     }
 }
 

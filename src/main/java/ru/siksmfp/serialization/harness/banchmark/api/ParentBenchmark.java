@@ -8,6 +8,7 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Warmup;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.state.api.BenchmarkState;
+import ru.siksmfp.serialization.harness.state.api.OutputState;
 import ru.siksmfp.serialization.harness.state.impl.InputUserState;
 
 import java.util.concurrent.TimeUnit;
@@ -17,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 @Fork(value = 2, jvmArgs = {"-Xms2G", "-Xmx2G"})
 @Measurement(iterations = 5)
 @Warmup(iterations = 5)
-public abstract class ParentBenchmark<S extends BenchmarkState> {
+public abstract class ParentBenchmark<S extends OutputState> {
 
     public abstract byte[] serializationBenchmark(InputUserState state);
 
