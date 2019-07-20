@@ -2,26 +2,26 @@ package ru.siksmfp.serialization.harness.banchmark.impl;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
-import ru.siksmfp.serialization.harness.model.cofler.User;
+import ru.siksmfp.serialization.harness.model.standart.User;
+import ru.siksmfp.serialization.harness.serializetion.api.Serializer;
+import ru.siksmfp.serialization.harness.serializetion.impl.CoflerSerializer;
 import ru.siksmfp.serialization.harness.state.impl.CoflerUserState;
 import ru.siksmfp.serialization.harness.state.impl.InputUserState;
 
 public class CoflerBenchmark extends ParentBenchmark<CoflerUserState> {
 
+    private Serializer<User> serializer = new CoflerSerializer();
+
     @Benchmark
     @Override
     public byte[] serializationBenchmark(InputUserState state) {
-        byte[] bytes = new byte[1024];
-        state.getInputObject().marshal(bytes, 0);
-        return bytes;
+        return serializer.serialize(state.getInputObject());
     }
 
     @Benchmark
     @Override
     public User deSerializationBenchmark(CoflerUserState state) {
-        User user = new User();
-        user.unmarshal(state.getOutputObject().array(), 0);
-        return user;
+        return serializer.deSerialize(state.getOutputObject());
     }
 
     //java 8

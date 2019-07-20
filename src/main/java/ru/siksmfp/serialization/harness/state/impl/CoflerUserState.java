@@ -31,8 +31,7 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_P
 @State(Scope.Benchmark)
 public class CoflerUserState implements BenchmarkState<User, ByteBuffer> {
 
-    private User user;
-    private ByteBuffer serializedUser;
+    private byte[] serializedUser;
 
     @Override
     public User getInputObject() {
@@ -40,7 +39,7 @@ public class CoflerUserState implements BenchmarkState<User, ByteBuffer> {
     }
 
     @Override
-    public ByteBuffer getOutputObject() {
+    public byte[] getOutputObject() {
         return serializedUser;
     }
 
