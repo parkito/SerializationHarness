@@ -10,18 +10,18 @@ import ru.siksmfp.serialization.harness.state.impl.SbeUserState;
 
 public class SbeBenchmark extends ParentBenchmark<SbeUserState> {
 
-    private Serializer<User> sbeSerializer = new SbeSerializer();
+    private Serializer<User> serializer = new SbeSerializer();
 
     @Benchmark
     @Override
     public byte[] serializationBenchmark(InputUserState state) {
-        return sbeSerializer.serialize(state.getInputObject());
+        return serializer.serialize(state.getInputObject());
     }
 
     @Benchmark
     @Override
     public User deSerializationBenchmark(SbeUserState state) {
-        return sbeSerializer.deSerialize(state.getOutputObject());
+        return serializer.deSerialize(state.getOutputObject());
     }
 }
 

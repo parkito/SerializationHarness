@@ -17,6 +17,9 @@ public class Address implements Serializable {
         this.population = population;
     }
 
+    public Address() {
+    }
+
     public Long getId() {
         return id;
     }
