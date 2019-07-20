@@ -1,10 +1,6 @@
 package ru.siksmfp.serialization.harness.state.api;
 
-public interface BenchmarkState<I,O> {
-
-    I getInputObject();
-
-    byte[] getOutputObject();
+public interface BenchmarkState {
 
     void setUp();
 

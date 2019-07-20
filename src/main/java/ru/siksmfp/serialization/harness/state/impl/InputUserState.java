@@ -4,9 +4,8 @@ import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Setup;
 import ru.siksmfp.serialization.harness.model.standart.Address;
 import ru.siksmfp.serialization.harness.model.standart.User;
-import ru.siksmfp.serialization.harness.state.api.BenchmarkState;
+import ru.siksmfp.serialization.harness.state.api.InputState;
 
-import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 import static ru.siksmfp.serialization.harness.state.StateConstant.DZRERZHINSK_CITY;
@@ -27,18 +26,13 @@ import static ru.siksmfp.serialization.harness.state.StateConstant.TOKIO_POPULAT
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_CITY;
 import static ru.siksmfp.serialization.harness.state.StateConstant.VLADIVASTOK_POPULATION;
 
-public class InputUserState implements BenchmarkState<User, ByteBuffer> {
+public class InputUserState implements InputState<User> {
 
     private User user;
 
     @Override
     public User getInputObject() {
         return user;
-    }
-
-    @Override
-    public ByteBuffer getOutputObject() {
-        throw new IllegalStateException("Global state doesn't contain output object");
     }
 
     @Setup(Level.Trial)
