@@ -1,28 +1,52 @@
 # Java Serialization Harness
+#### Performance testing of Java serialization frameworks.
 
-Performance testing of Java serialization frameworks
+**Serialization** is the process of converting an object into a stream of bytes.
+Almost all systems today use serialization as way of communication.
+
+There are lot of Java frameworks aimed to make serialization faster.
+
+This test suit benchmarked most popular of them.
 
 Current rating list
  
-1) Cap’n’Proto Java (best)
-2) Colfer/FlatBuffers
-3) SBE
-4) Java standart serialization mechanism (worst)
+1) Colfer (best)
+2) SBE
+3) FlatBuffers
+4) Cap’n’Proto Java 
+5) Java standart serialization mechanism (worst)
 
 Current statistics (simple object serialization)
 
         Benchmark                                                Mode  Cnt      Score      Error  Units
-        CapnprotoBenchmark.deSerializationBenchmark              avgt   10    130.823 ±   30.060  ns/op
-        CapnprotoBenchmark.serializationBenchmark                avgt   10    145.487 ±   22.092  ns/op
+        CoflerBenchmark.serializationBenchmark                   avgt   10    562.222 ±  118.964  ns/op
+        CoflerBenchmark.deSerializationBenchmark                 avgt   10    582.123 ±  133.977  ns/op
         
-        CoflerBenchmark.deSerializationBenchmark                 avgt   10    271.117 ±   34.895  ns/op
-        CoflerBenchmark.serializationBenchmark                   avgt   10    184.792 ±   37.363  ns/op
+        SbeBenchmark.serializationBenchmark                      avgt   10   1014.844 ±  118.201  ns/op
+        SbeBenchmark.deSerializationBenchmark                    avgt   10    697.312 ±  240.313  ns/op
         
-        FlatBufferBenchmark.deSerializationBenchmark             avgt   10    470.639 ±   42.592  ns/op
-        FlatBufferBenchmark.serializationBenchmark               avgt   10    208.432 ±   10.183  ns/op
+        FlatBufferBenchmark.serializationBenchmark               avgt   10   1242.209 ±  288.190  ns/op
+        FlatBufferBenchmark.deSerializationBenchmark             avgt   10    966.860 ±  274.069  ns/op
         
-        SbeBenchmark.deSerializationBenchmark                    avgt   10    829.490 ±  104.786  ns/op
-        SbeBenchmark.serializationBenchmark                      avgt   10   1170.203 ±   47.437  ns/op
+        CapnprotoOptimizedBenchmark.serializationBenchmark       avgt   10   1998.041 ±  814.209  ns/op
+        CapnprotoOptimizedBenchmark.deSerializationBenchmark     avgt   10   1383.317 ±  152.262  ns/op
         
-        StandardSerializationBenchmark.deSerializationBenchmark  avgt   10  24733.463 ± 3909.145  ns/op
-        StandardSerializationBenchmark.serializationBenchmark    avgt   10   4570.557 ±  496.812  ns/op
+        CapnprotoBenchmark.deSerializationBenchmark              avgt   10   1204.938 ±  254.563  ns/op
+        CapnprotoBenchmark.serializationBenchmark                avgt   10   3721.140 ± 1410.057  ns/op
+        
+        CapnprotoPackedBenchmark.deSerializationBenchmark        avgt   10   2325.421 ±  646.966  ns/op
+        CapnprotoPackedBenchmark.serializationBenchmark          avgt   10   4364.955 ± 1503.640  ns/op
+        
+        StandardSerializationBenchmark.deSerializationBenchmark  avgt   10  47852.448 ± 8796.435  ns/op
+        StandardSerializationBenchmark.serializationBenchmark    avgt   10   9313.576 ±  957.115  ns/op
+
+
+#### Test running
+
+1) Build project using maven
+
+`mvn clean install`
+
+2) Run tests
+
+`java -jar target/benchmarks.jar`
