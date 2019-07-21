@@ -1,7 +1,7 @@
 package ru.siksmfp.serialization.harness.serializer.impl;
 
-import ru.siksmfp.serialization.harness.serializer.api.Serializer;
 import ru.siksmfp.serialization.harness.model.standart.User;
+import ru.siksmfp.serialization.harness.serializer.api.Serializer;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

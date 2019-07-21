@@ -4,7 +4,6 @@ import org.capnproto.ArrayInputStream;
 import org.capnproto.ArrayOutputStream;
 import org.capnproto.MessageBuilder;
 import org.capnproto.MessageReader;
-import org.capnproto.Serialize;
 import org.capnproto.SerializePacked;
 import ru.siksmfp.serialization.harness.model.converter.api.Converter;
 import ru.siksmfp.serialization.harness.model.converter.impl.CapnprotoBuilderConverter;
@@ -28,7 +27,7 @@ public class CapnprotoPackedSerializer implements Serializer<User> {
             return os.getWriteBuffer().array();
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            throw new IllegalStateException("Capnproto packed serialization finished unsuccessfully");
         }
     }
 
@@ -39,7 +38,7 @@ public class CapnprotoPackedSerializer implements Serializer<User> {
             return readerConverter.toDto(read);
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            throw new IllegalStateException("Capnproto packed de serialization finished unsuccessfully");
         }
     }
 }

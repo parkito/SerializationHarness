@@ -22,7 +22,7 @@ public class FlatBufferSerializer implements Serializer<User> {
             return converter.toDto(UserProto.User.parseFrom(bytes));
         } catch (InvalidProtocolBufferException e) {
             e.printStackTrace();
-            return null;
+            throw new IllegalStateException("Flat buffer de serialization finished unsuccessfully");
         }
     }
 }

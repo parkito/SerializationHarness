@@ -27,7 +27,7 @@ public class CapnprotoSerializer implements Serializer<User> {
             return os.getWriteBuffer().array();
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            throw new IllegalStateException("Capnproto de serialization finished unsuccessfully");
         }
     }
 
@@ -38,7 +38,8 @@ public class CapnprotoSerializer implements Serializer<User> {
             return readerConverter.toDto(read);
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            throw new IllegalStateException("Capnproto de serialization finished unsuccessfully");
+
         }
     }
 }
