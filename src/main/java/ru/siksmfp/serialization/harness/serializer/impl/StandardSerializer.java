@@ -21,7 +21,7 @@ public class StandardSerializer implements Serializer<User> {
             return bos.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();
-            throw new IllegalStateException("Incorrect serialization process");
+            throw new IllegalStateException("Incorrect standard serialization process");
         }
     }
 
@@ -32,7 +32,7 @@ public class StandardSerializer implements Serializer<User> {
             return (User) in.readObject();
         } catch (Exception ex) {
             ex.printStackTrace();
-            throw new IllegalStateException("Incorrect de-serialization process");
+            throw new IllegalStateException("Incorrect standard de-serialization process");
         }
     }
 }
