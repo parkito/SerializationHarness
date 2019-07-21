@@ -1,6 +1,8 @@
 package ru.siksmfp.serialization.harness.state.impl;
 
+import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.serializer.api.Serializer;
@@ -31,12 +33,13 @@ public class StandardUserState implements OutputState, InputState<User> {
     }
 
     @Override
+    @Setup(Level.Trial)
     public void setUp() {
         InputUserState userState = new InputUserState();
         userState.setUp();
 
         user = userState.getInputObject();
         serializer = new StandardSerializer();
-        serializedUser = this.serializer.serialize(userState.getInputObject());
+        serializedUser = serializer.serialize(userState.getInputObject());
     }
 }

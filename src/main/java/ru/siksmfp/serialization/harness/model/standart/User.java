@@ -63,4 +63,14 @@ public class User implements Serializable {
         result = 31 * result + Arrays.hashCode(signature);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", signature=" + Arrays.toString(signature) +
+                ", addresses=" + addresses +
+                '}';
+    }
 }

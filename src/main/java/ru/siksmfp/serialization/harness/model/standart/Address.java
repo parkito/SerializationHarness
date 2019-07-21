@@ -58,4 +58,13 @@ public class Address implements Serializable {
     public int hashCode() {
         return Objects.hash(id, city, population);
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", city='" + city + '\'' +
+                ", population=" + population +
+                '}';
+    }
 }

@@ -35,6 +35,6 @@ public class SbeUserState implements OutputState {
 
         user = userState.getInputObject();
         serializer = new SbeSerializer();
-        serializedUser = this.serializer.serialize(userState.getInputObject());
+        serializedUser = serializer.serialize(userState.getInputObject());
     }
 }
