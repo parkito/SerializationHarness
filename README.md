@@ -8,7 +8,18 @@ There are lot of Java frameworks aimed to make serialization faster.
 
 This test suit benchmarked most popular of them.
 
-Current rating list
+###Current rating list
+
+#####Environment:
+     Model:                         MacBook Pro (15-inch, 2018)
+     Processor Name:	        Intel Core i7
+     Processor Speed:	        2,2 GHz
+     Number of Processors:	        1
+     Total Number of Cores:	        6
+     L2 Cache (per Core):	        256 KB
+     L3 Cache:	                9 MB
+     Hyper-Threading Technology:	Enabled
+     Memory                         16 GB 2400 MHz DDR4
  
 1) Colfer (best)
 2) SBE
