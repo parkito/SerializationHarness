@@ -8,9 +8,9 @@ There are lot of Java frameworks aimed to make serialization faster.
 
 This test suit benchmarked most popular of them.
 
-###Current rating list
+### Current rating list
 
-#####Environment:
+##### Environment:
      Model:                         MacBook Pro (15-inch, 2018)
      Processor Name:	        Intel Core i7
      Processor Speed:	        2,2 GHz
