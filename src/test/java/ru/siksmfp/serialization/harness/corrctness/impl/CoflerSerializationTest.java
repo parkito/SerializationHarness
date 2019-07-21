@@ -4,9 +4,9 @@ import ru.siksmfp.serialization.harness.corrctness.api.ParentSerializationTest;
 import ru.siksmfp.serialization.harness.serializer.impl.CoflerSerializer;
 import ru.siksmfp.serialization.harness.state.impl.CoflerUserState;
 
-public class CoflerSerializationCorrectnessTest extends ParentSerializationTest {
+public class CoflerSerializationTest extends ParentSerializationTest {
 
-    CoflerSerializationCorrectnessTest() {
+    CoflerSerializationTest() {
         super(new CoflerSerializer(), new CoflerUserState());
     }
 }

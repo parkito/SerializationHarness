@@ -69,6 +69,11 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.0</version>
                 <executions>
@@ -89,31 +94,31 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.expretio.maven.plugins</groupId>-->
-<!--                <artifactId>capnp-maven-plugin</artifactId>-->
-<!--                <version>1.0</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>generate</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <schemas>-->
-<!--                                <schema>/Users/parkito/GitHub/bids/SerializationHarness/src/main/resources/capnp/foo.capnp</schema>-->
-<!--                            </schemas>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>net.quies.colfer</groupId>-->
-<!--                <artifactId>colfer-maven-plugin</artifactId>-->
-<!--                <version>1.11.2</version>-->
-<!--                <configuration>-->
-<!--                    <packagePrefix>com/example</packagePrefix>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.expretio.maven.plugins</groupId>-->
+            <!--                <artifactId>capnp-maven-plugin</artifactId>-->
+            <!--                <version>1.0</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <goals>-->
+            <!--                            <goal>generate</goal>-->
+            <!--                        </goals>-->
+            <!--                        <configuration>-->
+            <!--                            <schemas>-->
+            <!--                                <schema>/Users/parkito/GitHub/bids/SerializationHarness/src/main/resources/capnp/foo.capnp</schema>-->
+            <!--                            </schemas>-->
+            <!--                        </configuration>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>net.quies.colfer</groupId>-->
+            <!--                <artifactId>colfer-maven-plugin</artifactId>-->
+            <!--                <version>1.11.2</version>-->
+            <!--                <configuration>-->
+            <!--                    <packagePrefix>com/example</packagePrefix>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
 

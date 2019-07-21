@@ -4,9 +4,9 @@ import ru.siksmfp.serialization.harness.corrctness.api.ParentSerializationTest;
 import ru.siksmfp.serialization.harness.serializer.impl.FlatBufferSerializer;
 import ru.siksmfp.serialization.harness.state.impl.FlatBufferUserState;
 
-public class FlatBufferSerializationCorrectness extends ParentSerializationTest {
+public class FlatBufferSerialization extends ParentSerializationTest {
 
-    FlatBufferSerializationCorrectness() {
+    FlatBufferSerialization() {
         super(new FlatBufferSerializer(), new FlatBufferUserState());
     }
 }

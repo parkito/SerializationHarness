@@ -4,9 +4,9 @@ import ru.siksmfp.serialization.harness.corrctness.api.ParentSerializationTest;
 import ru.siksmfp.serialization.harness.serializer.impl.SbeSerializer;
 import ru.siksmfp.serialization.harness.state.impl.SbeUserState;
 
-public class SbeSerializationCorrectnessTest extends ParentSerializationTest {
+public class SbeSerializationTest extends ParentSerializationTest {
 
-    SbeSerializationCorrectnessTest() {
+    SbeSerializationTest() {
         super(new SbeSerializer(), new SbeUserState());
     }
 }

@@ -4,9 +4,9 @@ import ru.siksmfp.serialization.harness.corrctness.api.ParentSerializationTest;
 import ru.siksmfp.serialization.harness.serializer.impl.CapnprotoSerializer;
 import ru.siksmfp.serialization.harness.state.impl.CapnprotoUserState;
 
-public class CapnprotoSerializationCorrectnessTest extends ParentSerializationTest {
+public class CapnprotoSerializationTest extends ParentSerializationTest {
 
-    CapnprotoSerializationCorrectnessTest() {
+    CapnprotoSerializationTest() {
         super(new CapnprotoSerializer(), new CapnprotoUserState());
     }
 }
