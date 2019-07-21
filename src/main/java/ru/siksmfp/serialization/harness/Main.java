@@ -20,3 +20,16 @@ public class Main {
 //        SbeBenchmark.serializationBenchmark                      avgt   10   1170.203 ±   47.437  ns/op
 //        StandardSerializationBenchmark.deSerializationBenchmark  avgt   10  24733.463 ± 3909.145  ns/op
 //        StandardSerializationBenchmark.serializationBenchmark    avgt   10   4570.557 ±  496.812  ns/op
+
+
+
+//        CapnprotoBenchmark.deSerializationBenchmark              avgt   10    943.070 ±  196.519  ns/op
+//        CapnprotoBenchmark.serializationBenchmark                avgt   10   1828.338 ±  236.721  ns/op
+//        CapnprotoPackedBenchmark.deSerializationBenchmark        avgt   10   2148.989 ±  189.117  ns/op
+//        CapnprotoPackedBenchmark.serializationBenchmark          avgt   10   2867.691 ±  226.140  ns/op
+//        CoflerBenchmark.deSerializationBenchmark                 avgt   10    385.436 ±   26.755  ns/op
+//        CoflerBenchmark.serializationBenchmark                   avgt   10    293.312 ±   64.944  ns/op
+//        FlatBufferBenchmark.deSerializationBenchmark             avgt   10    705.831 ±   66.786  ns/op
+//        SbeBenchmark.deSerializationBenchmark                    avgt   10    667.015 ±  149.672  ns/op
+//        StandardSerializationBenchmark.deSerializationBenchmark  avgt   10  27965.087 ± 3896.340  ns/op
+

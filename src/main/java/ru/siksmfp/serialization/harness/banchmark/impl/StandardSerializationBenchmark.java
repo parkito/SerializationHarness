@@ -8,6 +8,7 @@ import ru.siksmfp.serialization.harness.state.impl.StandardUserState;
 public class StandardSerializationBenchmark extends ParentBenchmark<StandardUserState> {
 
     @Override
+    @Benchmark
     public byte[] serializationBenchmark(StandardUserState state) {
         return performSerialization(state);
     }

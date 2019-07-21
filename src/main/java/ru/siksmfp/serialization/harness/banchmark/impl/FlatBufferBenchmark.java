@@ -8,6 +8,7 @@ import ru.siksmfp.serialization.harness.state.impl.FlatBufferUserState;
 public class FlatBufferBenchmark extends ParentBenchmark<FlatBufferUserState> {
 
     @Override
+    @Benchmark
     public byte[] serializationBenchmark(FlatBufferUserState state) {
         return performSerialization(state);
     }
