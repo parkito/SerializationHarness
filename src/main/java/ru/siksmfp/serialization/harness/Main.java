@@ -9,27 +9,18 @@ public class Main {
 }
 
 
-//        Benchmark                                                Mode  Cnt      Score      Error  Units
-//        CapnprotoBenchmark.deSerializationBenchmark              avgt   10    130.823 ±   30.060  ns/op
-//        CapnprotoBenchmark.serializationBenchmark                avgt   10    145.487 ±   22.092  ns/op
-//        CoflerBenchmark.deSerializationBenchmark                 avgt   10    271.117 ±   34.895  ns/op
-//        CoflerBenchmark.serializationBenchmark                   avgt   10    184.792 ±   37.363  ns/op
-//        FlatBufferBenchmark.deSerializationBenchmark             avgt   10    470.639 ±   42.592  ns/op
-//        FlatBufferBenchmark.serializationBenchmark               avgt   10    208.432 ±   10.183  ns/op
-//        SbeBenchmark.deSerializationBenchmark                    avgt   10    829.490 ±  104.786  ns/op
-//        SbeBenchmark.serializationBenchmark                      avgt   10   1170.203 ±   47.437  ns/op
-//        StandardSerializationBenchmark.deSerializationBenchmark  avgt   10  24733.463 ± 3909.145  ns/op
-//        StandardSerializationBenchmark.serializationBenchmark    avgt   10   4570.557 ±  496.812  ns/op
-
-
-
-//        CapnprotoBenchmark.deSerializationBenchmark              avgt   10    943.070 ±  196.519  ns/op
-//        CapnprotoBenchmark.serializationBenchmark                avgt   10   1828.338 ±  236.721  ns/op
-//        CapnprotoPackedBenchmark.deSerializationBenchmark        avgt   10   2148.989 ±  189.117  ns/op
-//        CapnprotoPackedBenchmark.serializationBenchmark          avgt   10   2867.691 ±  226.140  ns/op
-//        CoflerBenchmark.deSerializationBenchmark                 avgt   10    385.436 ±   26.755  ns/op
-//        CoflerBenchmark.serializationBenchmark                   avgt   10    293.312 ±   64.944  ns/op
-//        FlatBufferBenchmark.deSerializationBenchmark             avgt   10    705.831 ±   66.786  ns/op
-//        SbeBenchmark.deSerializationBenchmark                    avgt   10    667.015 ±  149.672  ns/op
-//        StandardSerializationBenchmark.deSerializationBenchmark  avgt   10  27965.087 ± 3896.340  ns/op
+//        CapnprotoBenchmark.deSerializationBenchmark              avgt   10   1204.938 ±  254.563  ns/op
+//        CapnprotoBenchmark.serializationBenchmark                avgt   10   3721.140 ± 1410.057  ns/op
+//        CapnprotoOptimizedBenchmark.deSerializationBenchmark     avgt   10   1383.317 ±  152.262  ns/op
+//        CapnprotoOptimizedBenchmark.serializationBenchmark       avgt   10   1998.041 ±  814.209  ns/op
+//        CapnprotoPackedBenchmark.deSerializationBenchmark        avgt   10   2325.421 ±  646.966  ns/op
+//        CapnprotoPackedBenchmark.serializationBenchmark          avgt   10   4364.955 ± 1503.640  ns/op
+//        CoflerBenchmark.deSerializationBenchmark                 avgt   10    582.123 ±  133.977  ns/op
+//        CoflerBenchmark.serializationBenchmark                   avgt   10    562.222 ±  118.964  ns/op
+//        FlatBufferBenchmark.deSerializationBenchmark             avgt   10    966.860 ±  274.069  ns/op
+//        FlatBufferBenchmark.serializationBenchmark               avgt   10   1242.209 ±  288.190  ns/op
+//        SbeBenchmark.deSerializationBenchmark                    avgt   10    697.312 ±  240.313  ns/op
+//        SbeBenchmark.serializationBenchmark                      avgt   10   1014.844 ±  118.201  ns/op
+//        StandardSerializationBenchmark.deSerializationBenchmark  avgt   10  47852.448 ± 8796.435  ns/op
+//        StandardSerializationBenchmark.serializationBenchmark    avgt   10   9313.576 ±  957.115  ns/op
 
