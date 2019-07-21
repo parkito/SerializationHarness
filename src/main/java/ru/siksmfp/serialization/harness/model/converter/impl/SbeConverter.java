@@ -16,7 +16,7 @@ public class SbeConverter implements Converter<UnsafeBuffer, User> {
     @Override
     public UnsafeBuffer toModel(User dto) {
         UnsafeBuffer unsafeBuffer = new UnsafeBuffer();
-        unsafeBuffer.wrap(ByteBuffer.allocateDirect(1024));
+        unsafeBuffer.wrap(ByteBuffer.allocate(1024));
 
         UserEncoder userEncoder = new UserEncoder();
         userEncoder.wrap(unsafeBuffer, 0);
