@@ -1,4 +1,4 @@
-package ru.siksmfp.serialization.harness.serializer.impl;
+package ru.siksmfp.serialization.harness.serializer.impl.capnproto;
 
 import org.capnproto.ArrayInputStream;
 import org.capnproto.ArrayOutputStream;

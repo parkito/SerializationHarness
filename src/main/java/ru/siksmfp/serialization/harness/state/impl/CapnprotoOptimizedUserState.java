@@ -6,11 +6,11 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.serializer.api.Serializer;
-import ru.siksmfp.serialization.harness.serializer.impl.capnproto.CapnprotoPackedSerializer;
+import ru.siksmfp.serialization.harness.serializer.impl.capnproto.CapnprotoOptimizedSerializer;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
 
 @State(Scope.Benchmark)
-public class CapnprotoPackedUserState implements OutputState {
+public class CapnprotoOptimizedUserState implements OutputState {
 
     private Serializer<User> serializer;
     private byte[] serializedUser;
@@ -34,7 +34,8 @@ public class CapnprotoPackedUserState implements OutputState {
         userState.setUp();
 
         user = userState.getInputObject();
-        serializer = new CapnprotoPackedSerializer();
-        serializedUser = serializer.serialize(userState.getInputObject());
+        serializer = new CapnprotoOptimizedSerializer();
+        serializedUser = this.serializer.serialize(userState.getInputObject());
     }
 }
+
