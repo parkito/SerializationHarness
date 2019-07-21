@@ -17,8 +17,6 @@ public class SbeSerializer implements Serializer<User> {
 
     @Override
     public User deSerialize(byte[] bytes) {
-        UnsafeBuffer buffer = new UnsafeBuffer();
-        buffer.wrap(bytes);
-        return converter.toDto(buffer);
+        return converter.toDto(new UnsafeBuffer(bytes));
     }
 }
