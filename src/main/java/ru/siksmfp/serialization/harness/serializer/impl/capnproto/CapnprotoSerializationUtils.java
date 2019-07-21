@@ -100,12 +100,11 @@ public class CapnprotoSerializationUtils {
         return new MessageReader(segmentSlices, options);
     }
 
-    private static int fillBuffer(ByteBuffer buffer, byte[] array, int offset) {
+    private static void fillBuffer(ByteBuffer buffer, byte[] array, int offset) {
         final int offSetSize = offset + buffer.limit();
         for (int i = offset; i < offSetSize; i++) {
             buffer.put(array[i]);
         }
-        return offSetSize;
     }
 
     private static ByteBuffer makeByteBuffer(int bytes) {
