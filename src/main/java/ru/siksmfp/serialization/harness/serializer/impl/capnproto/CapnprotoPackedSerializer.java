@@ -6,8 +6,8 @@ import org.capnproto.MessageBuilder;
 import org.capnproto.MessageReader;
 import org.capnproto.SerializePacked;
 import ru.siksmfp.serialization.harness.converter.api.Converter;
-import ru.siksmfp.serialization.harness.converter.impl.CapnprotoBuilderConverter;
-import ru.siksmfp.serialization.harness.converter.impl.CapnprotoReaderConverter;
+import ru.siksmfp.serialization.harness.converter.impl.capnpoto.CapnprotoBuilderConverter;
+import ru.siksmfp.serialization.harness.converter.impl.capnpoto.CapnprotoReaderConverter;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.serializer.api.Serializer;
 

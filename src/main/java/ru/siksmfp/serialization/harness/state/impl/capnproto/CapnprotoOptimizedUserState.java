@@ -1,4 +1,4 @@
-package ru.siksmfp.serialization.harness.state.impl;
+package ru.siksmfp.serialization.harness.state.impl.capnproto;
 
 import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Scope;
@@ -8,6 +8,7 @@ import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.serializer.api.Serializer;
 import ru.siksmfp.serialization.harness.serializer.impl.capnproto.CapnprotoOptimizedSerializer;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
+import ru.siksmfp.serialization.harness.state.impl.InputUserState;
 
 @State(Scope.Benchmark)
 public class CapnprotoOptimizedUserState implements OutputState<User> {

@@ -2,7 +2,7 @@ package ru.siksmfp.serialization.harness.corrctness.impl;
 
 import ru.siksmfp.serialization.harness.corrctness.api.ParentSerializationTest;
 import ru.siksmfp.serialization.harness.serializer.impl.capnproto.CapnprotoOptimizedSerializer;
-import ru.siksmfp.serialization.harness.state.impl.CapnprotoOptimizedUserState;
+import ru.siksmfp.serialization.harness.state.impl.capnproto.CapnprotoOptimizedUserState;
 
 public class CapnprotoOptimizedSerializationTest extends ParentSerializationTest {
 

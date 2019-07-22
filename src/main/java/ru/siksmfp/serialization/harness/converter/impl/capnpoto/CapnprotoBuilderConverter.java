@@ -1,4 +1,4 @@
-package ru.siksmfp.serialization.harness.converter.impl;
+package ru.siksmfp.serialization.harness.converter.impl.capnpoto;
 
 import org.capnproto.MessageBuilder;
 import org.capnproto.StructList;

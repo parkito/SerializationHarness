@@ -1,4 +1,4 @@
-package ru.siksmfp.serialization.harness.state.impl;
+package ru.siksmfp.serialization.harness.state.impl.capnproto;
 
 import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Scope;
@@ -6,11 +6,12 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.serializer.api.Serializer;
-import ru.siksmfp.serialization.harness.serializer.impl.capnproto.CapnprotoSerializer;
+import ru.siksmfp.serialization.harness.serializer.impl.capnproto.CapnprotoPackedSerializer;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
+import ru.siksmfp.serialization.harness.state.impl.InputUserState;
 
 @State(Scope.Benchmark)
-public class CapnprotoUserState implements OutputState<User> {
+public class CapnprotoPackedUserState implements OutputState<User> {
 
     private Serializer<User> serializer;
     private byte[] serializedUser;
@@ -34,8 +35,7 @@ public class CapnprotoUserState implements OutputState<User> {
         userState.setUp();
 
         user = userState.getInputObject();
-        serializer = new CapnprotoSerializer();
-        serializedUser = this.serializer.serialize(userState.getInputObject());
+        serializer = new CapnprotoPackedSerializer();
+        serializedUser = serializer.serialize(userState.getInputObject());
     }
 }
-
