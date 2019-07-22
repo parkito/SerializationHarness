@@ -27,7 +27,7 @@ This test suit benchmarks most popular of them.
 4) Cap’n’Proto Java 
 5) Java standart serialization mechanism (worst)
 
-Current statistics (simple object serialization)
+Current statistics (simple object serialization). Less score - better result.
 
         Benchmark                                                Mode  Cnt      Score      Error  Units
         CoflerBenchmark.serializationBenchmark                   avgt   10    562.222 ±  118.964  ns/op
@@ -62,13 +62,39 @@ Current statistics (simple object serialization)
 
 `java -jar target/benchmarks.jar`
 
+Compiled test sute you can find [**here**](https://github.com/parkito/SerializationHarness/blob/master/src/main/resources/benchmarks.jar)
+
+
 #### Adding custom tests
 
 Tests use simple User object to benchmark serialization.
 If you want to benchmark your own framework or a different object you may
 include custom benchmark into existed test structure.
 
+You can consider CustomBenchmark as an example how to integrate your own benchmark.
+
+The easiest way to implement benchmark just adapt custom example for your needs.
+
 To include custom benchmark you should
 
+1.) Create your model in _ru.siksmfp.serialization.harness.model_
 
-1) Create your model in ru.siksmfp.serialization.harness.dto package
+2.) Create your DTO (frame work schema) in _ru.siksmfp.serialization.harness.dto_
+
+3.) Create converter from model to dto and vice versa in _ru.siksmfp.serialization.harness.converter.impl_
+
+4.) Create your state in _ru.siksmfp.serialization.harness.state.impl_
+     
+>   1) Create your model with data
+
+5.) Create your serializer in _ru.siksmfp.serialization.harness.serializer_
+
+6.) Improve your state from **6th** step by
+
+>   1) Create serializer instance
+>   2) Serialize model and save byte array in output object
+>   3) Don't forget using annotation` @State(Scope.Benchmark)` for state
+
+7.) Add tests for serialization in _ru.siksmfp.serialization.harness.corrctness.impl_
+
+8.) Create benchmark in _ru.siksmfp.serialization.harness.banchmark_
