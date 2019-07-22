@@ -10,7 +10,7 @@ import ru.siksmfp.serialization.harness.serializer.impl.SbeSerializer;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
 
 @State(Scope.Benchmark)
-public class SbeUserState implements OutputState {
+public class SbeUserState implements OutputState<User> {
 
     private Serializer<User> serializer;
     private byte[] serializedUser;

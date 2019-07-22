@@ -5,7 +5,7 @@ import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.state.impl.SbeUserState;
 
-public class SbeBenchmark extends ParentBenchmark<SbeUserState> {
+public class SbeBenchmark extends ParentBenchmark<User, SbeUserState> {
 
     @Override
     @Benchmark

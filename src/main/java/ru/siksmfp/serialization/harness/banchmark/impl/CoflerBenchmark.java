@@ -5,7 +5,7 @@ import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.state.impl.CoflerUserState;
 
-public class CoflerBenchmark extends ParentBenchmark<CoflerUserState> {
+public class CoflerBenchmark extends ParentBenchmark<User, CoflerUserState> {
 
     @Benchmark
     @Override

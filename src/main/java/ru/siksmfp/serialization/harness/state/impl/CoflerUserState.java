@@ -10,7 +10,7 @@ import ru.siksmfp.serialization.harness.serializer.impl.CoflerSerializer;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
 
 @State(Scope.Benchmark)
-public class CoflerUserState implements OutputState {
+public class CoflerUserState implements OutputState<User> {
 
     private Serializer<User> serializer;
     private byte[] serializedUser;

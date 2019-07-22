@@ -5,7 +5,7 @@ import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.state.impl.CapnprotoPackedUserState;
 
-public class CapnprotoPackedBenchmark extends ParentBenchmark<CapnprotoPackedUserState> {
+public class CapnprotoPackedBenchmark extends ParentBenchmark<User,CapnprotoPackedUserState> {
 
     @Benchmark
     @Override

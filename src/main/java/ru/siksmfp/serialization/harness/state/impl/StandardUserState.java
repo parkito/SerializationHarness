@@ -11,7 +11,7 @@ import ru.siksmfp.serialization.harness.state.api.InputState;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
 
 @State(Scope.Benchmark)
-public class StandardUserState implements OutputState, InputState<User> {
+public class StandardUserState implements OutputState<User>, InputState<User> {
 
     private Serializer<User> serializer;
     private byte[] serializedUser;

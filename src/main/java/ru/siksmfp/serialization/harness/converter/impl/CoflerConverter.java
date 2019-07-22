@@ -1,8 +1,8 @@
-package ru.siksmfp.serialization.harness.model.converter.impl;
+package ru.siksmfp.serialization.harness.converter.impl;
 
-import ru.siksmfp.serialization.harness.model.cofler.Address;
-import ru.siksmfp.serialization.harness.model.cofler.User;
-import ru.siksmfp.serialization.harness.model.converter.api.Converter;
+import ru.siksmfp.serialization.harness.dto.cofler.Address;
+import ru.siksmfp.serialization.harness.dto.cofler.User;
+import ru.siksmfp.serialization.harness.converter.api.Converter;
 
 import java.util.ArrayList;
 import java.util.List;

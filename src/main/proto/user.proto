@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option java_outer_classname = "UserProto";
 
-option java_package = "ru.siksmfp.serialization.harness.model.proto";
+option java_package = "ru.siksmfp.serialization.harness.dto.proto";
 
 message User {
 

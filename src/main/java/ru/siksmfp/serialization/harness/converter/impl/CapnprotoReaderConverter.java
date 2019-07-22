@@ -1,8 +1,8 @@
-package ru.siksmfp.serialization.harness.model.converter.impl;
+package ru.siksmfp.serialization.harness.converter.impl;
 
 import org.capnproto.MessageReader;
-import ru.siksmfp.serialization.harness.model.capnp.UserModel;
-import ru.siksmfp.serialization.harness.model.converter.api.Converter;
+import ru.siksmfp.serialization.harness.dto.capnp.UserModel;
+import ru.siksmfp.serialization.harness.converter.api.Converter;
 import ru.siksmfp.serialization.harness.model.standart.Address;
 import ru.siksmfp.serialization.harness.model.standart.User;
 

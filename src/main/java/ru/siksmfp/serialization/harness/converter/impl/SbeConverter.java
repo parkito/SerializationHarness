@@ -1,9 +1,9 @@
-package ru.siksmfp.serialization.harness.model.converter.impl;
+package ru.siksmfp.serialization.harness.converter.impl;
 
 import org.agrona.concurrent.UnsafeBuffer;
-import ru.siksmfp.serialization.harness.model.converter.api.Converter;
-import ru.siksmfp.serialization.harness.model.sbe.UserDecoder;
-import ru.siksmfp.serialization.harness.model.sbe.UserEncoder;
+import ru.siksmfp.serialization.harness.converter.api.Converter;
+import ru.siksmfp.serialization.harness.dto.sbe.UserDecoder;
+import ru.siksmfp.serialization.harness.dto.sbe.UserEncoder;
 import ru.siksmfp.serialization.harness.model.standart.Address;
 import ru.siksmfp.serialization.harness.model.standart.User;
 

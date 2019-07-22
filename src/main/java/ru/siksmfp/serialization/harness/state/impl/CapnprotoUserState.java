@@ -10,7 +10,7 @@ import ru.siksmfp.serialization.harness.serializer.impl.capnproto.CapnprotoSeria
 import ru.siksmfp.serialization.harness.state.api.OutputState;
 
 @State(Scope.Benchmark)
-public class CapnprotoUserState implements OutputState {
+public class CapnprotoUserState implements OutputState<User> {
 
     private Serializer<User> serializer;
     private byte[] serializedUser;

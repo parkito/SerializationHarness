@@ -1,6 +1,6 @@
 package ru.siksmfp.serialization.harness.serializer.impl;
 
-import ru.siksmfp.serialization.harness.model.converter.impl.CoflerConverter;
+import ru.siksmfp.serialization.harness.converter.impl.CoflerConverter;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.serializer.api.Serializer;
 
@@ -17,7 +17,7 @@ public class CoflerSerializer implements Serializer<User> {
 
     @Override
     public User deSerialize(byte[] bytes) {
-        ru.siksmfp.serialization.harness.model.cofler.User user = new ru.siksmfp.serialization.harness.model.cofler.User();
+        ru.siksmfp.serialization.harness.dto.cofler.User user = new ru.siksmfp.serialization.harness.dto.cofler.User();
         user.unmarshal(bytes, 0);
         return coflerConverter.toDto(user);
     }

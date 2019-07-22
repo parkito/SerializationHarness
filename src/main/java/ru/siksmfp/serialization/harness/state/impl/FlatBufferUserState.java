@@ -10,7 +10,7 @@ import ru.siksmfp.serialization.harness.serializer.impl.FlatBufferSerializer;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
 
 @State(Scope.Benchmark)
-public class FlatBufferUserState implements OutputState {
+public class FlatBufferUserState implements OutputState<User> {
 
     private Serializer<User> serializer;
     private byte[] serializedUser;

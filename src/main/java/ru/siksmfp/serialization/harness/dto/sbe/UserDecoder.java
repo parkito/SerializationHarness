@@ -1,11 +1,10 @@
 /* Generated SBE (Simple Binary Encoding) message codec */
-package ru.siksmfp.serialization.harness.model.sbe;
+package ru.siksmfp.serialization.harness.dto.sbe;
 
-import org.agrona.MutableDirectBuffer;
 import org.agrona.DirectBuffer;
 
 /**
- * User model
+ * User dto
  */
 @SuppressWarnings("all")
 public class UserDecoder

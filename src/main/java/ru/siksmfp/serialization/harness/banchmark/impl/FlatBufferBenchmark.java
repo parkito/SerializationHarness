@@ -5,7 +5,7 @@ import ru.siksmfp.serialization.harness.banchmark.api.ParentBenchmark;
 import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.state.impl.FlatBufferUserState;
 
-public class FlatBufferBenchmark extends ParentBenchmark<FlatBufferUserState> {
+public class FlatBufferBenchmark extends ParentBenchmark<User,FlatBufferUserState> {
 
     @Override
     @Benchmark

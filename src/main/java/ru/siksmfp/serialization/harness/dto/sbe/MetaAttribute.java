@@ -1,5 +1,5 @@
 /* Generated SBE (Simple Binary Encoding) message codec */
-package ru.siksmfp.serialization.harness.model.sbe;
+package ru.siksmfp.serialization.harness.dto.sbe;
 
 public enum MetaAttribute
 {

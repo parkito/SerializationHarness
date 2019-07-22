@@ -6,7 +6,7 @@ Almost all systems today use serialization as way of communication.
 
 There are lot of Java frameworks aimed to make serialization faster.
 
-This test suit benchmarked most popular of them.
+This test suit benchmarks most popular of them.
 
 ### Current rating list
 
@@ -61,3 +61,14 @@ Current statistics (simple object serialization)
 2) Run tests
 
 `java -jar target/benchmarks.jar`
+
+#### Adding custom tests
+
+Tests use simple User object to benchmark serialization.
+If you want to benchmark your own framework or a different object you may
+include custom benchmark into existed test structure.
+
+To include custom benchmark you should
+
+
+1) Create your model in ru.siksmfp.serialization.harness.dto package
