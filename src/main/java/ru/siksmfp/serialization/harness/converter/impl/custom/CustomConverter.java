@@ -8,11 +8,11 @@ public class CustomConverter implements Converter<CustomModel, CustomDto> {
 
     @Override
     public CustomModel toModel(CustomDto dto) {
-        return null;
+        return new CustomModel(1);
     }
 
     @Override
     public CustomDto toDto(CustomModel model) {
-        return null;
+        return new CustomDto("1");
     }
 }

@@ -35,7 +35,7 @@ public class CustomState implements OutputState<CustomModel>, InputState<CustomM
     @Override
     @Setup(Level.Trial)
     public void setUp() {
-        customDto = new CustomModel();
+        customDto = new CustomModel(1);
         //populate model with default values here
 
         serializer = new CustomSerializer();

@@ -2,45 +2,44 @@ package ru.siksmfp.serialization.harness.corrctness.api;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.siksmfp.serialization.harness.model.standart.User;
 import ru.siksmfp.serialization.harness.serializer.api.Serializer;
+import ru.siksmfp.serialization.harness.state.api.InputState;
 import ru.siksmfp.serialization.harness.state.api.OutputState;
-import ru.siksmfp.serialization.harness.state.impl.InputUserState;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public abstract class ParentSerializationTest {
+public abstract class ParentSerializationTest<T> {
 
-    private Serializer<User> serializer;
-    private OutputState outputState;
-    private InputUserState inputUserState;
+    private Serializer<T> serializer;
+    private OutputState<T> outputState;
+    private InputState<T> inputState;
 
-    public ParentSerializationTest(Serializer<User> serializer, OutputState outputState) {
+    public ParentSerializationTest(Serializer<T> serializer, OutputState<T> outputState, InputState<T> inputState) {
         this.serializer = serializer;
         this.outputState = outputState;
-        inputUserState = new InputUserState();
+        this.inputState = inputState;
     }
 
     @BeforeEach
     void setUp() {
-        inputUserState.setUp();
+        inputState.setUp();
         outputState.setUp();
     }
 
     @Test
     void serializationCorrectness() {
         byte[] actualResult = outputState.getOutputObject();
-        byte[] expectedResult = serializer.serialize(inputUserState.getInputObject());
+        byte[] expectedResult = serializer.serialize(inputState.getInputObject());
 
         assertArrayEquals(expectedResult, actualResult);
     }
 
     @Test
     void deSerializationCorrectness() {
-        User dto = inputUserState.getInputObject();
+        T dto = inputState.getInputObject();
         byte[] bytes = serializer.serialize(dto);
-        User deserializedUser = serializer.deSerialize(bytes);
+        T deserializedUser = serializer.deSerialize(bytes);
 
         assertEquals(dto, deserializedUser);
     }
