@@ -93,7 +93,7 @@ To include custom benchmark you should
 
 >   1) Create serializer instance
 >   2) Serialize model and save byte array in output object
->   3) Don't forget using annotation` @State(Scope.Benchmark)` for state
+>   3) Don't forget using annotation `@State(Scope.Benchmark)` for state
 
 7.) Add tests for serialization in _ru.siksmfp.serialization.harness.corrctness.impl_
 
